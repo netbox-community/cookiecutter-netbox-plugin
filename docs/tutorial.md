@@ -48,15 +48,6 @@ Go to this generated folder, the project layout should look like:
 ├── mkdocs.yml
 ├── netbox_healthcheck_plugin
 │   ├── __init__.py
-│   ├── __pycache__
-│   │   ├── __init__.cpython-310.pyc
-│   │   ├── filtersets.cpython-310.pyc
-│   │   ├── forms.cpython-310.pyc
-│   │   ├── models.cpython-310.pyc
-│   │   ├── navigation.cpython-310.pyc
-│   │   ├── tables.cpython-310.pyc
-│   │   ├── urls.cpython-310.pyc
-│   │   └── views.cpython-310.pyc
 │   ├── filtersets.py
 │   ├── forms.py
 │   ├── models.py
