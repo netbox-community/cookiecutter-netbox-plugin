@@ -11,5 +11,7 @@
   "github_username": "arthanson",
   "version": "0.1.0",
   "open_source_license": ["Apache-2.0", "MIT", "BSD", "ISC", "GPL-3.0-only", "Not open source"],
-  "_copy_without_render": ["docs/changelog.md", "docs/contributing.md", "docs/index.md", ".github/workflows/*.yml"]
+  "_copy_without_render": ["docs/changelog.md", "docs/contributing.md", "docs/index.md", ".github/workflows/*.yml"],
+  "devcontainer": "False",
+  "netbox_version": "3.4.0"
 }
