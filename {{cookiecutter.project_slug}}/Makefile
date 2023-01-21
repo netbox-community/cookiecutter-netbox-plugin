@@ -38,11 +38,11 @@ setup:
 
 .PHONY: example_initializers ## Run initializers
 example_initializers:
-	-${VENV_PY_PATH} ${NETBOX_MANAGE_PATH} copy_initializers_examples --path /opt/netbox/netbox/{{ cookiecutter.project_name }}/.devcontainer/initializers
+	-${VENV_PY_PATH} ${NETBOX_MANAGE_PATH} copy_initializers_examples --path /opt/netbox/netbox/{{ cookiecutter.project_slug }}/.devcontainer/initializers
 
 .PHONY: load_initializers ## Run initializers
 load_initializers:
-	-${VENV_PY_PATH} ${NETBOX_MANAGE_PATH} load_initializer_data  --path /opt/netbox/netbox/{{ cookiecutter.project_name }}/.devcontainer/initializers
+	-${VENV_PY_PATH} ${NETBOX_MANAGE_PATH} load_initializer_data  --path /opt/netbox/netbox/{{ cookiecutter.project_slug }}/.devcontainer/initializers
 
 .PHONY: makemigrations ## Run makemigrations
 makemigrations:
