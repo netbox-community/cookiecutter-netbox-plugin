@@ -100,3 +100,5 @@ cookiecutter-pypackage-env/
 
 # IDE settings
 .vscode/
+
+site/
