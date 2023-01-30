@@ -5,9 +5,8 @@ repo_name: netbox-community/cookiecutter-netbox-plugin
 nav:
   - Introduction: index.md
   - Tutorial: tutorial.md
-  - Console script: console_script_setup.md
+  - Prompts: prompts.md
   - Release checklist: pypi_release_checklist.md
-  - FAQ: faq.md
   - History: history.md
 
 theme:
