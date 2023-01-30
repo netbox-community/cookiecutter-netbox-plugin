@@ -3,7 +3,7 @@
 Cookiecutter template for a NetBox plugin, built with popular develop tools and
 conform to best practice.
 
-* Documentation: <https://netbox-community.github.io/-cookiecutter-netbox-plugin/>
+* Documentation: <https://netbox-community.github.io/cookiecutter-netbox-plugin/>
 
 ## Features
 
