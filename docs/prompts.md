@@ -34,7 +34,7 @@ Typically, it is the slugified version of project_name.</dd>
 <dd>Your email address.</dd>
 
 <dt>github_username</dt>
-<dd>Your GitHub username.</dd>
+<dd>Your GitHub username (or organization name).</dd>
 
 <dt>version</dt>
 <dd>The starting version number of the package.</dd>
