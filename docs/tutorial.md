@@ -155,9 +155,9 @@ Documentation will be published and available at *https://{your_github_account}.
   instructions at [release checklist](pypi_release_checklist.md), trigger first official release and check
   result at [PyPI].
 
-??? Note
-    Did you find anything in this article confusing? Please **Edit this file** and create a pull a request!
-
 ## Step 9. (Optional) Submit it to netbox.dev
 
 If your plugin is public, submit it to [NetBox.dev Plugin Repository](https://netbox.dev/plugins/) for easy discovery by other NetBox users.
+
+??? Note
+    Did you find anything in this article confusing? Please **Edit this file** and create a pull a request!
