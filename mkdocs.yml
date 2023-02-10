@@ -1,4 +1,4 @@
-site_name: Cookiecutter Pypackage
+site_name: Cookiecutter NetBox Plugin
 site_url: https://github.com/netbox-community/cookiecutter-netbox-plugin
 repo_url: https://github.com/netbox-community/cookiecutter-netbox-plugin
 repo_name: netbox-community/cookiecutter-netbox-plugin
