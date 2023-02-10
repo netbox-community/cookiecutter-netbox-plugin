@@ -7,6 +7,10 @@ tutorial.
 If you are new to Git and GitHub, you should probably spend a few minutes on
 some tutorials at the top of the page at [GitHub Help](https://help.github.com/).
 
+You will also need an installation of [NetBox](https://github.com/netbox-community/netbox) to configure and test the plugin.
+More information on Plugin Development can be found in the NetBox documentation 
+[Plugin Development](https://docs.netbox.dev/en/stable/plugins/development/).
+
 ## Step 1: Install Cookiecutter
 
 Install cookiecutter:
@@ -70,8 +74,6 @@ Here the plugin_name is `HealthCheck`, when you generate yours, it could be othe
 
 Go to your NetBox development environment and make sure the NetBox virtual environment is active.  See [Create Python Virtual Environment](https://docs.netbox.dev/en/stable/development/getting-started/#4-create-a-python-virtual-environment).
 
-More information on Plugin Development can be found in the NetBox documentation [Plugin Development](https://docs.netbox.dev/en/stable/plugins/development/).
-
 To ease development, it is recommended to go ahead and install the plugin at this point using setuptools' `develop` mode. This will create symbolic links within your Python environment to the plugin development directory. Call `setup.py` from the plugin's root directory with the `develop` argument (instead of `install`):
 
 ```no-highlight
@@ -84,7 +86,7 @@ To enable the plugin in NetBox, add it to the `PLUGINS` parameter in `configurat
 
 ```python
 PLUGINS = [
-    'my_plugin',
+    'healthcheck',
 ]
 ```
 At this point you can run tests and make sure everything is working properly.
