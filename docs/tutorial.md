@@ -1,8 +1,5 @@
 # Tutorial
 
-??? Note
-    Did you find this article confusing? **Edit this file** and pull a request!
-
 To start with, you will need [GitHub](https://github.com/), [PyPI](https://pypi.org) and [TestPyPI](https://test.pypi.org/). If
 you don't have one, please follow the links to apply one before you get started on this
 tutorial.
@@ -155,3 +152,6 @@ Documentation will be published and available at *https://{your_github_account}.
   After done with your phased development in a feature branch, make a pull request, following
   instructions at [release checklist](pypi_release_checklist.md), trigger first official release and check
   result at [PyPI].
+
+??? Note
+    Did you find anything in this article confusing? Please **Edit this file** and create a pull a request!
