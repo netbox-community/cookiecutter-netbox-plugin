@@ -69,7 +69,30 @@ Go to this generated folder, the project layout should look like:
 
 Here the plugin_name is `HealthCheck`, when you generate yours, it could be other name.
 
-## Step 3: Create a GitHub Repo
+## Step 3: Development Installation
+
+Go to your NetBox development environment and make sure the NetBox virtual environment is active.  See [Create Python Virtual Environment](https://docs.netbox.dev/en/stable/development/getting-started/#4-create-a-python-virtual-environment).
+
+More information on Plugin Development can be found in the NetBox documentation [Plugin Development](https://docs.netbox.dev/en/stable/plugins/development/).
+
+To ease development, it is recommended to go ahead and install the plugin at this point using setuptools' `develop` mode. This will create symbolic links within your Python environment to the plugin development directory. Call `setup.py` from the plugin's root directory with the `develop` argument (instead of `install`):
+
+```no-highlight
+$ python setup.py develop
+```
+
+## Step 4: Configure NetBox
+
+To enable the plugin in NetBox, add it to the `PLUGINS` parameter in `configuration.py`:
+
+```python
+PLUGINS = [
+    'my_plugin',
+]
+```
+At this point you can run tests and make sure everything is working properly.
+
+## Step 5: Create a GitHub Repo
 
 Go to your GitHub account and create a new repo named `netbox-healthcheck-plugin`, where
 `netbox-healthcheck-plugin` matches the `project_slug` from your answers to running
@@ -82,7 +105,7 @@ Then go to repo > settings > secrets, click on 'New repository secret', add the 
 - PYPI_API_TOKEN, see [How to apply pypi token](https://pypi.org/manage/account/)
 - PERSONAL_TOKEN, see [How to apply personal token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
 
-## Step 4: Upload code to GitHub
+## Step 6: Upload code to GitHub
 
 Back to your develop environment, find the folder named after the `project_slug`.
 Move into this folder, and then setup git to use your GitHub repo and upload the
@@ -120,14 +143,14 @@ click on actions link, you should find screen like this:
 There should be some workflows running. After they finished, go to [TestPyPI], check if a
 new artifact is published under the name `project_slug`.
 
-## Step 5. Check documentation
+## Step 7. Check documentation
 
 Documentation will be published and available at *https://{your_github_account}.github.io/{your_repo}* once:
 
 1. the commit is tagged, and the tag name is started with 'v' (lower case)
 2. build/testing executed by GitHub CI passed
 
-## Step 6. Make official release
+## Step 8. Make official release
 
   After done with your phased development in a feature branch, make a pull request, following
   instructions at [release checklist](pypi_release_checklist.md), trigger first official release and check
