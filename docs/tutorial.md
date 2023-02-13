@@ -144,7 +144,31 @@ new artifact is published under the name `project_slug`.
 
 ## Step 7. Check documentation
 
-Documentation will be published and available at *https://{your_github_account}.github.io/{your_repo}* once:
+Documentation will be published and available at *https://{your_github_account}.github.io/{your_repo}* You will
+need to make sure GitHub is configured properly:
+
+1. Your repro must be public
+2. On the main top horizontal menu go to "Settings"
+2. On the left-hand menu go to "Pages"
+3. Under "Build and deployment" make sure Source dropdown is set to "Deploy from a branch"
+4. Under branch choose "gh-pages" and "/(root)" - click the Save button
+
+You may need to wait up to 10 minutes for your documentation to appear.  If you are still having issues you
+can manually deploy it by the following steps:
+
+1. Make sure a local virtual environment is configured.
+2. Pip install the following pakcages:
+
+```
+pip install mkdocs-material mkdocs-autorefs mkdocs-material-extensions mkdocstrings mkdocstrings-python-legacy mkdocs-include-markdown-plugin
+```
+3. run the following command:
+
+```
+mkdocs gh-deploy
+```
+
+Documentation updates will be published once:
 
 1. the commit is tagged, and the tag name is started with 'v' (lower case)
 2. build/testing executed by GitHub CI passed
