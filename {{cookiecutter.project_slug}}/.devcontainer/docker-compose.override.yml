@@ -1,0 +1,12 @@
+version: '3.4'
+services:
+  netbox:
+    build:
+      dockerfile: Dockerfile-plugin_dev
+      context: .
+    ports:
+      - 8000:8080
+    volumes:
+      - ../:/opt/netbox/netbox/{{ cookiecutter.project_slug }}
+      - ~/.gitconfig:/home/vscode/.gitconfig:z,ro
+      - ~/.ssh:/home/vscode/.ssh
