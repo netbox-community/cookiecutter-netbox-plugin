@@ -20,5 +20,3 @@ class {{ cookiecutter.__model_name }}EditView(generic.ObjectEditView):
 
 class {{ cookiecutter.__model_name }}DeleteView(generic.ObjectDeleteView):
     queryset = models.{{ cookiecutter.__model_name }}.objects.all()
-
-

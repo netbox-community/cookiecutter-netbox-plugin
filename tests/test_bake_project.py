@@ -1,16 +1,17 @@
-from contextlib import contextmanager
-import shlex
-import os
-import sys
-import subprocess
-import yaml
+from __future__ import annotations
+
 import datetime
-import pytest
-from cookiecutter.utils import rmtree
-
-from click.testing import CliRunner
-
 import importlib
+import os
+import shlex
+import subprocess
+import sys
+from contextlib import contextmanager
+
+import pytest
+import yaml
+from click.testing import CliRunner
+from cookiecutter.utils import rmtree
 
 
 @contextmanager
@@ -59,7 +60,7 @@ def check_output_inside_dir(command, dirpath):
 
 def test_year_compute_in_license_file(cookies):
     with bake_in_temp_dir(cookies) as result:
-        license_file_path = result.project.join('LICENSE')
+        license_file_path = result.project.join("LICENSE")
         now = datetime.datetime.now()
         assert str(now.year) in license_file_path.read()
 
@@ -79,75 +80,64 @@ def test_bake_with_defaults(cookies):
         assert result.exception is None
 
         found_toplevel_files = [f.basename for f in result.project.listdir()]
-        assert 'setup.py' in found_toplevel_files
-        assert 'python_boilerplate' in found_toplevel_files
-        assert 'tests' in found_toplevel_files
+        assert "setup.py" in found_toplevel_files
+        assert "python_boilerplate" in found_toplevel_files
+        assert "tests" in found_toplevel_files
 
 
 def test_bake_and_run_tests(cookies):
     with bake_in_temp_dir(cookies) as result:
         assert result.project.isdir()
-        run_inside_dir('python setup.py test', str(result.project)) == 0
+        run_inside_dir("python setup.py test", str(result.project)) == 0
         print("test_bake_and_run_tests path", str(result.project))
 
 
 def test_bake_withspecialchars_and_run_tests(cookies):
     """Ensure that a `full_name` with double quotes does not break setup.py"""
     with bake_in_temp_dir(
-        cookies,
-        extra_context={'full_name': 'name "quote" name'}
+        cookies, extra_context={"full_name": 'name "quote" name'}
     ) as result:
         assert result.project.isdir()
-        run_inside_dir('python setup.py test', str(result.project)) == 0
+        run_inside_dir("python setup.py test", str(result.project)) == 0
 
 
 def test_bake_with_apostrophe_and_run_tests(cookies):
     """Ensure that a `full_name` with apostrophes does not break setup.py"""
-    with bake_in_temp_dir(
-        cookies,
-        extra_context={'full_name': "O'connor"}
-    ) as result:
+    with bake_in_temp_dir(cookies, extra_context={"full_name": "O'connor"}) as result:
         assert result.project.isdir()
-        run_inside_dir('python setup.py test', str(result.project)) == 0
+        run_inside_dir("python setup.py test", str(result.project)) == 0
 
 
 def test_make_help(cookies):
     with bake_in_temp_dir(cookies) as result:
         # The supplied Makefile does not support win32
         if sys.platform != "win32":
-            output = check_output_inside_dir(
-                'make help',
-                str(result.project)
-            )
-            assert b"check code coverage quickly with the default Python" in \
-                output
+            output = check_output_inside_dir("make help", str(result.project))
+            assert b"check code coverage quickly with the default Python" in output
 
 
 def test_bake_selecting_license(cookies):
     license_strings = {
-        'MIT license': 'MIT ',
-        'BSD license': 'Redistributions of source code must retain the ' +
-                       'above copyright notice, this',
-        'ISC license': 'ISC License',
-        'Apache Software License 2.0':
-            'Licensed under the Apache License, Version 2.0',
-        'GNU General Public License v3': 'GNU GENERAL PUBLIC LICENSE',
+        "MIT license": "MIT ",
+        "BSD license": "Redistributions of source code must retain the "
+        + "above copyright notice, this",
+        "ISC license": "ISC License",
+        "Apache Software License 2.0": "Licensed under the Apache License, Version 2.0",
+        "GNU General Public License v3": "GNU GENERAL PUBLIC LICENSE",
     }
     for license, target_string in license_strings.items():
         with bake_in_temp_dir(
-            cookies,
-            extra_context={'open_source_license': license}
+            cookies, extra_context={"open_source_license": license}
         ) as result:
-            assert target_string in result.project.join('LICENSE').read()
-            assert license in result.project.join('setup.py').read()
+            assert target_string in result.project.join("LICENSE").read()
+            assert license in result.project.join("setup.py").read()
 
 
 def test_bake_not_open_source(cookies):
     with bake_in_temp_dir(
-        cookies,
-        extra_context={'open_source_license': 'Not open source'}
+        cookies, extra_context={"open_source_license": "Not open source"}
     ) as result:
         found_toplevel_files = [f.basename for f in result.project.listdir()]
-        assert 'setup.py' in found_toplevel_files
-        assert 'LICENSE' not in found_toplevel_files
-        assert 'License' not in result.project.join('README.rst').read()
+        assert "setup.py" in found_toplevel_files
+        assert "LICENSE" not in found_toplevel_files
+        assert "License" not in result.project.join("README.rst").read()
