@@ -1,7 +1,6 @@
 from extras.plugins import PluginMenuButton, PluginMenuItem
 from utilities.choices import ButtonColorChoices
 
-
 plugin_buttons = [
     PluginMenuButton(
         link='plugins:{{ cookiecutter.project_slug }}:{{ cookiecutter.__model_url_name }}_add',
