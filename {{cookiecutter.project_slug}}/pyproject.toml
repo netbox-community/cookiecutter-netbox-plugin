@@ -56,7 +56,7 @@ Source = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.
 Tracker = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/issues"
 
 [tool.flit.module]
-name = "python_package"
+name = "{{ cookiecutter.project_slug }}"
 
 [tool.bandit]
 exclude_dirs = ["build","dist","tests","scripts","docs"]
@@ -94,22 +94,4 @@ ignore = [
     "B001",
     "W503",
     "E203"
-]
-
-[tool.pyright]
-include = ["src"]
-exclude = [
-    "**/node_modules",
-    "**/__pycache__",
-]
-venv = "env37"
-
-reportMissingImports = true
-reportMissingTypeStubs = false
-
-pythonVersion = "3.7"
-pythonPlatform = "Linux"
-
-executionEnvironments = [
-  { root = "{{ cookiecutter.project_slug }}" }
 ]
