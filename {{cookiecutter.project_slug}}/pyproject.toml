@@ -2,8 +2,7 @@
 # https://www.python.org/dev/peps/pep-0518/
 
 [build-system]
-requires = ["flit"]
-build-backend = "flit.buildapi"
+requires = ["setuptools>=63.2.0", "wheel"]
 
 [project]
 name =  "{{ cookiecutter.project_slug }}"
@@ -54,9 +53,6 @@ test = [
 Documentation = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/blob/main/README.md"
 Source = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
 Tracker = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/issues"
-
-[tool.flit.module]
-name = "{{ cookiecutter.project_slug }}"
 
 [tool.bandit]
 exclude_dirs = ["build","dist","tests","scripts","docs"]
