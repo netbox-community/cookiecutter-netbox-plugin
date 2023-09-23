@@ -4,9 +4,7 @@ from netbox.models import NetBoxModel
 
 
 class {{ cookiecutter.__model_name }}(NetBoxModel):
-    name = models.CharField(
-        max_length=100
-    )
+    name = models.CharField(max_length=100)
 
     class Meta:
         ordering = ("name",)
