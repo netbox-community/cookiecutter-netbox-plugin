@@ -9,10 +9,10 @@ class {{ cookiecutter.__model_name }}(NetBoxModel):
     )
 
     class Meta:
-        ordering = ('name',)
+        ordering = ("name",)
 
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('plugins:{{ cookiecutter.project_slug }}:{{ cookiecutter.__model_name|lower }}', args=[self.pk])
+        return reverse("plugins:{{ cookiecutter.project_slug }}:{{ cookiecutter.__model_name|lower }}", args=[self.pk])
