@@ -8,7 +8,7 @@ If you are new to Git and GitHub, you should probably spend a few minutes on
 some tutorials at the top of the page at [GitHub Help](https://help.github.com/).
 
 You will also need an installation of [NetBox](https://github.com/netbox-community/netbox) to configure and test the plugin.
-More information on Plugin Development can be found in the NetBox documentation 
+More information on Plugin Development can be found in the NetBox documentation
 [Plugin Development](https://docs.netbox.dev/en/stable/plugins/development/).
 
 ## Step 1: Install Cookiecutter
