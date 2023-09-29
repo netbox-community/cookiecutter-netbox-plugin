@@ -1,0 +1,54 @@
+# See PEP 518 for the spec of this file
+# https://www.python.org/dev/peps/pep-0518/
+
+[build-system]
+requires = ["setuptools>=63.2.0", "wheel"]
+
+[project]
+name =  "cookiecutter-netbox-plugin"
+authors = [
+    {name = "Arthur Hanson", email = "ahanson@netboxlabs.com"},
+]
+description = "Cookiecutter template for a NetBox plugin"
+readme = "README.md"
+
+classifiers=[
+    'Development Status :: 4 - Beta',
+    'Intended Audience :: Developers',
+    'Natural Language :: English',
+    "Programming Language :: Python :: 3 :: Only",
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+]
+
+requires-python = ">=3.8"
+dynamic = ["version"]
+
+[project.optional-dependencies]
+test = [
+    "black==23.3.0",
+    "check-manifest==0.49",
+    "pre-commit==3.3.1",
+    "pylint==2.17.4",
+    "pytest-mock<3.10.1",
+    "pytest-runner",
+    "pytest==7.3.1",
+    "pytest-github-actions-annotate-failures",
+]
+
+[project.urls]
+Documentation = "https://https://github.com/netbox-community/cookiecutter-netbox-plugin/blob/main/README.md"
+Source = "https://https://github.com/netbox-community/cookiecutter-netbox-plugin"
+Tracker = "https://github.com/netbox-community/cookiecutter-netbox-plugin/issues"
+
+[tool.black]
+line-length = 120
+target_version = ['py38', 'py39', 'py310', 'py311']
+
+[tool.isort]
+profile = "black"
+
+[tool.pylint]
+max-line-length = 120
