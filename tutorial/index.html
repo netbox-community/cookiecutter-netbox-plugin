@@ -1,0 +1,795 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://github.com/netbox-community/cookiecutter-netbox-plugin/tutorial/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../prompts/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.2">
+    
+    
+      
+        <title>Tutorial - Cookiecutter NetBox Plugin</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.d451bc0e.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a5377069.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tutorial" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Cookiecutter NetBox Plugin" class="md-header__button md-logo" aria-label="Cookiecutter NetBox Plugin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cookiecutter NetBox Plugin
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tutorial
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/netbox-community/cookiecutter-netbox-plugin" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    netbox-community/cookiecutter-netbox-plugin
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Cookiecutter NetBox Plugin" class="md-nav__button md-logo" aria-label="Cookiecutter NetBox Plugin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Cookiecutter NetBox Plugin
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/netbox-community/cookiecutter-netbox-plugin" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    netbox-community/cookiecutter-netbox-plugin
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Tutorial
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial" class="md-nav__link">
+    Tutorial
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-cookiecutter" class="md-nav__link">
+    Step 1: Install Cookiecutter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-generate-your-package" class="md-nav__link">
+    Step 2: Generate Your Package
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-development-installation" class="md-nav__link">
+    Step 3: Development Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-configure-netbox" class="md-nav__link">
+    Step 4: Configure NetBox
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-create-a-github-repo" class="md-nav__link">
+    Step 5: Create a GitHub Repo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-upload-code-to-github" class="md-nav__link">
+    Step 6: Upload code to GitHub
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 6: Upload code to GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-result" class="md-nav__link">
+    Check result
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-check-documentation" class="md-nav__link">
+    Step 7. Check documentation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-make-official-release" class="md-nav__link">
+    Step 8. Make official release
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-9-optional-submit-it-to-netboxdev" class="md-nav__link">
+    Step 9. (Optional) Submit it to netbox.dev
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prompts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pypi_release_checklist/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release checklist
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    History
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial" class="md-nav__link">
+    Tutorial
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-cookiecutter" class="md-nav__link">
+    Step 1: Install Cookiecutter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-generate-your-package" class="md-nav__link">
+    Step 2: Generate Your Package
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-development-installation" class="md-nav__link">
+    Step 3: Development Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-configure-netbox" class="md-nav__link">
+    Step 4: Configure NetBox
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-create-a-github-repo" class="md-nav__link">
+    Step 5: Create a GitHub Repo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-upload-code-to-github" class="md-nav__link">
+    Step 6: Upload code to GitHub
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 6: Upload code to GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-result" class="md-nav__link">
+    Check result
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-check-documentation" class="md-nav__link">
+    Step 7. Check documentation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-make-official-release" class="md-nav__link">
+    Step 8. Make official release
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-9-optional-submit-it-to-netboxdev" class="md-nav__link">
+    Step 9. (Optional) Submit it to netbox.dev
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Tutorial</h1>
+
+<h2 id="tutorial">Tutorial<a class="headerlink" href="#tutorial" title="Permanent link">&para;</a></h2>
+<p>To start with, you will need <a href="https://github.com/">GitHub</a>, <a href="https://pypi.org">PyPI</a> and <a href="https://test.pypi.org/">TestPyPI</a>. If
+you don't have one, please follow the links to apply one before you get started on this
+tutorial.</p>
+<p>If you are new to Git and GitHub, you should probably spend a few minutes on
+some tutorials at the top of the page at <a href="https://help.github.com/">GitHub Help</a>.</p>
+<p>You will also need an installation of <a href="https://github.com/netbox-community/netbox">NetBox</a> to configure and test the plugin.
+More information on Plugin Development can be found in the NetBox documentation
+<a href="https://docs.netbox.dev/en/stable/plugins/development/">Plugin Development</a>.</p>
+<h3 id="step-1-install-cookiecutter">Step 1: Install Cookiecutter<a class="headerlink" href="#step-1-install-cookiecutter" title="Permanent link">&para;</a></h3>
+<p>Install cookiecutter:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>cookiecutter
+</code></pre></div></td></tr></table></div>
+<h3 id="step-2-generate-your-package">Step 2: Generate Your Package<a class="headerlink" href="#step-2-generate-your-package" title="Permanent link">&para;</a></h3>
+<p>Now it's time to generate your Python package.</p>
+<p>Run the following command and feed with answers, If you don’t know what to enter, stick with the defaults:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>cookiecutter<span class="w"> </span>https://github.com/netbox-community/cookiecutter-netbox-plugin.git
+</code></pre></div></td></tr></table></div>
+<p>Finally, a new folder will be created under current folder, the name is the answer you
+provided to <code>project_slug</code>.</p>
+<p>Go to this generated folder, the project layout should look like:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code>.
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── LICENSE
+├── MANIFEST.in
+├── Makefile
+├── README.md
+├── docs
+│   ├── changelog.md
+│   ├── contributing.md
+│   └── index.md
+├── mkdocs.yml
+├── netbox_healthcheck_plugin
+│   ├── __init__.py
+│   ├── filtersets.py
+│   ├── forms.py
+│   ├── models.py
+│   ├── navigation.py
+│   ├── tables.py
+│   ├── templates
+│   │   └── netbox_healthcheck_plugin
+│   │       └── healthcheck.html
+│   ├── urls.py
+│   └── views.py
+├── requirements_dev.txt
+├── setup.cfg
+├── setup.py
+└── tests
+    ├── __init__.py
+    └── test_netbox_healthcheck_plugin.py
+</code></pre></div></td></tr></table></div>
+<p>Here the plugin_name is <code>HealthCheck</code>, when you generate yours, it could be other name.</p>
+<h3 id="step-3-development-installation">Step 3: Development Installation<a class="headerlink" href="#step-3-development-installation" title="Permanent link">&para;</a></h3>
+<p>Go to your NetBox development environment and make sure the NetBox virtual environment is active.  See <a href="https://docs.netbox.dev/en/stable/development/getting-started/#4-create-a-python-virtual-environment">Create Python Virtual Environment</a>.</p>
+<p>To ease development, it is recommended to go ahead and install the plugin at this point using setuptools' <code>develop</code> mode. This will create symbolic links within your Python environment to the plugin development directory. Call <code>setup.py</code> from the plugin's root directory with the <code>develop</code> argument (instead of <code>install</code>):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$ python setup.py develop
+</code></pre></div></td></tr></table></div>
+<h3 id="step-4-configure-netbox">Step 4: Configure NetBox<a class="headerlink" href="#step-4-configure-netbox" title="Permanent link">&para;</a></h3>
+<p>To enable the plugin in NetBox, add it to the <code>PLUGINS</code> parameter in <code>configuration.py</code>:</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">PLUGINS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;healthcheck&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+At this point you can run tests and make sure everything is working properly.</p>
+<h3 id="step-5-create-a-github-repo">Step 5: Create a GitHub Repo<a class="headerlink" href="#step-5-create-a-github-repo" title="Permanent link">&para;</a></h3>
+<p>Go to your GitHub account and create a new repo named <code>netbox-healthcheck-plugin</code>, where
+<code>netbox-healthcheck-plugin</code> matches the <code>project_slug</code> from your answers to running
+cookiecutter.</p>
+<p>Then go to repo &gt; settings &gt; secrets, click on 'New repository secret', add the following
+ secrets:</p>
+<ul>
+<li>TEST_PYPI_API_TOKEN, see <a href="https://test.pypi.org/manage/account/">How to apply TestPyPI token</a></li>
+<li>PYPI_API_TOKEN, see <a href="https://pypi.org/manage/account/">How to apply pypi token</a></li>
+<li>PERSONAL_TOKEN, see <a href="https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token">How to apply personal token</a></li>
+</ul>
+<h3 id="step-6-upload-code-to-github">Step 6: Upload code to GitHub<a class="headerlink" href="#step-6-upload-code-to-github" title="Permanent link">&para;</a></h3>
+<p>Back to your develop environment, find the folder named after the <code>project_slug</code>.
+Move into this folder, and then setup git to use your GitHub repo and upload the
+code:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>my-package
+
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Initial commit.&quot;</span>
+git<span class="w"> </span>branch<span class="w"> </span>-M<span class="w"> </span>main
+git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>git@github.com:myusername/my-package.git
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
+</code></pre></div></td></tr></table></div>
+<p>Where <code>myusername</code> and <code>my-package</code> are adjusted for your username and
+repo name.</p>
+<p>You'll need a ssh key to push the repo. You can <a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">Generate</a> a key or
+<a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/">Add</a> an existing one.</p>
+<details class="warning" open="open">
+<summary>Warning</summary>
+<p>if you answered 'yes' to the question if install pre-commit hooks at last step,
+then you should find pre-commit be invoked when you run <code>git commit</code>, and some files
+ may be modified by hooks. If so, please add these files and <strong>commit again</strong>.</p>
+</details>
+<h4 id="check-result">Check result<a class="headerlink" href="#check-result" title="Permanent link">&para;</a></h4>
+<p>After pushing your code to GitHub, goto GitHub web page, navigate to your repo, then
+click on actions link, you should find screen like this:</p>
+<p><img alt="" src="http://images.jieyu.ai/images/202104/20210419170304.png" /></p>
+<p>There should be some workflows running. After they finished, go to [TestPyPI], check if a
+new artifact is published under the name <code>project_slug</code>.</p>
+<h3 id="step-7-check-documentation">Step 7. Check documentation<a class="headerlink" href="#step-7-check-documentation" title="Permanent link">&para;</a></h3>
+<p>Documentation will be published and available at <em>https://{your_github_account}.github.io/{your_repo}</em> You will
+need to make sure GitHub is configured properly:</p>
+<ol>
+<li>Your repro must be public</li>
+<li>On the main top horizontal menu go to "Settings"</li>
+<li>On the left-hand menu go to "Pages"</li>
+<li>Under "Build and deployment" make sure Source dropdown is set to "Deploy from a branch"</li>
+<li>Under branch choose "gh-pages" and "/(root)" - click the Save button</li>
+</ol>
+<p>You may need to wait up to 10 minutes for your documentation to appear.  If you are still having issues you
+can manually deploy it by the following steps:</p>
+<ol>
+<li>Make sure a local virtual environment is configured.</li>
+<li>Pip install the following pakcages:</li>
+</ol>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pip install mkdocs-material mkdocs-autorefs mkdocs-material-extensions mkdocstrings mkdocstrings-python-legacy mkdocs-include-markdown-plugin
+</code></pre></div></td></tr></table></div>
+3. run the following command:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdocs gh-deploy
+</code></pre></div></td></tr></table></div>
+<p>Documentation updates will be published once:</p>
+<ol>
+<li>the commit is tagged, and the tag name is started with 'v' (lower case)</li>
+<li>build/testing executed by GitHub CI passed</li>
+</ol>
+<h3 id="step-8-make-official-release">Step 8. Make official release<a class="headerlink" href="#step-8-make-official-release" title="Permanent link">&para;</a></h3>
+<p>After done with your phased development in a feature branch, make a pull request, following
+  instructions at <a href="../pypi_release_checklist/">release checklist</a>, trigger first official release and check
+  result at [PyPI].</p>
+<h3 id="step-9-optional-submit-it-to-netboxdev">Step 9. (Optional) Submit it to netbox.dev<a class="headerlink" href="#step-9-optional-submit-it-to-netboxdev" title="Permanent link">&para;</a></h3>
+<p>If your plugin is public, submit it to <a href="https://netbox.dev/plugins/">NetBox.dev Plugin Repository</a> for easy discovery by other NetBox users.</p>
+<details class="note">
+<summary>Note</summary>
+<p>Did you find anything in this article confusing? Please <strong>Edit this file</strong> and create a pull a request!</p>
+</details>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.indexes", "navigation.instant", "navigation.tabs.sticky"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.726fbb30.min.js"></script>
+      
+    
+  </body>
+</html>
