@@ -7,6 +7,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name =  "{{ cookiecutter.project_slug }}"
+version = "{{ cookiecutter.version }}"
 authors = [
     {name = "{{ cookiecutter.full_name.replace('\"', '\\\"') }}", email = "{{ cookiecutter.email }}"},
 ]
@@ -36,7 +37,6 @@ classifiers=[
 ]
 
 requires-python = ">=3.8.1"
-dynamic = ["version"]
 
 [project.optional-dependencies]
 test = [
