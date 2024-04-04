@@ -4,7 +4,7 @@ ci:
 
 repos:
 -   repo: https://github.com/psf/black
-    rev: stable
+    rev: 24.3.0
     hooks:
     - id: black
       language_version: python3.11
