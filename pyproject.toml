@@ -17,10 +17,10 @@ classifiers=[
     'Intended Audience :: Developers',
     'Natural Language :: English',
     "Programming Language :: Python :: 3 :: Only",
-    'Programming Language :: Python :: 3.8',
     'Programming Language :: Python :: 3.9',
     'Programming Language :: Python :: 3.10',
     'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
 ]
 
 requires-python = ">=3.8"
@@ -45,10 +45,4 @@ Tracker = "https://github.com/netbox-community/cookiecutter-netbox-plugin/issues
 
 [tool.black]
 line-length = 120
-target_version = ['py38', 'py39', 'py310', 'py311']
-
-[tool.isort]
-profile = "black"
-
-[tool.pylint]
-max-line-length = 120
+target-version = ['py312']
