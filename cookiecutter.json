@@ -1,7 +1,8 @@
 {
   "plugin_name": "ACL",
   "project_name": "NetBox {{ cookiecutter.plugin_name }} Plugin",
-  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "hyphenated": "{{ '-'.join(cookiecutter['project_name'].lower().split()).replace('_', '-') }}",
+  "underscored": "{{ cookiecutter.hyphenated.replace('-', '_') }}",
   "project_short_description": "NetBox plugin for {{ cookiecutter.plugin_name }}.",
   "__model_name": "{{ cookiecutter.plugin_name.replace(' ', '').replace('-', '') }}",
   "__model_url": "{{ cookiecutter.plugin_name.lower().replace(' ', '-').replace('_', '-') }}",

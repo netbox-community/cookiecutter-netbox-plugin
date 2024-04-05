@@ -5,7 +5,7 @@
 
 {% if is_open_source %}
 * Free software: {{ cookiecutter.open_source_license }}
-* Documentation: https://{{ cookiecutter.github_username }}.github.io/{{ cookiecutter.project_slug | replace("_", "-") }}/
+* Documentation: https://{{ cookiecutter.github_username }}.github.io/{{ cookiecutter.hyphenated | replace("_", "-") }}/
 {% endif %}
 
 ## Features
@@ -26,13 +26,13 @@ For adding to a NetBox Docker setup see
 While this is still in development and not yet on pypi you can install with pip:
 
 ```bash
-pip install git+https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}
+pip install git+https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.hyphenated }}
 ```
 
 or by adding to your `local_requirements.txt` or `plugin_requirements.txt` (netbox-docker):
 
 ```bash
-git+https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}
+git+https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.hyphenated }}
 ```
 
 Enable the plugin in `/opt/netbox/netbox/netbox/configuration.py`,

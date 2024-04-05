@@ -9,11 +9,11 @@ from extras.plugins import PluginConfig
 
 
 class {{ cookiecutter.__model_name }}Config(PluginConfig):
-    name = "{{ cookiecutter.project_slug }}"
+    name = "{{ cookiecutter.underscored }}"
     verbose_name = "{{ cookiecutter.project_name }}"
     description = "{{ cookiecutter.project_short_description }}"
     version = "version"
-    base_url = "{{ cookiecutter.project_slug }}"
+    base_url = "{{ cookiecutter.underscored }}"
 
 
 config = {{ cookiecutter.__model_name }}Config

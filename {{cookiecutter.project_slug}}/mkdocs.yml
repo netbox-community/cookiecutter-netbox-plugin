@@ -1,7 +1,7 @@
 site_name: {{ cookiecutter.project_name }}
-site_url: https://{{ cookiecutter.github_username }}.github.io/{{ cookiecutter.project_slug }}
-repo_url: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}
-repo_name: {{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}
+site_url: https://{{ cookiecutter.github_username }}.github.io/{{ cookiecutter.hyphenated }}
+repo_url: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.hyphenated }}
+repo_name: {{ cookiecutter.github_username }}/{{ cookiecutter.hyphenated }}
 #strict: true
 nav:
   - Home: index.md
@@ -49,7 +49,7 @@ plugins:
       lang: en
   - mkdocstrings:
       watch:
-        - {{ cookiecutter.project_slug }}
+        - {{ cookiecutter.hyphenated }}
 extra:
   social:
     - icon: fontawesome/brands/twitter
@@ -61,7 +61,7 @@ extra:
       link: https://github.com/netbox-community/cookiecutter-netbox-plugin
       name: Facebook
     - icon: fontawesome/brands/github
-      link: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}
+      link: https://github.com/{{ cookiecutter.github_username }}/{{ underscored.project_slug }}
       name: Github
     - icon: material/email
       link: "mailto:{{ cookiecutter.email }}"

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
 
-"""Tests for `{{ cookiecutter.project_slug }}` package."""
+"""Tests for `{{ cookiecutter.underscored }}` package."""
 
-from {{ cookiecutter.project_slug }} import {{ cookiecutter.project_slug }}
+from {{ cookiecutter.underscored }} import {{ cookiecutter.underscored }}
