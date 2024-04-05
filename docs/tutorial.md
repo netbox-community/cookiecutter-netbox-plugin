@@ -30,7 +30,7 @@ cookiecutter https://github.com/netbox-community/cookiecutter-netbox-plugin.git
 ```
 
 Finally, a new folder will be created under current folder, the name is the answer you
-provided to `project_slug`.
+provided to `hyphenated`.
 
 Go to this generated folder, the project layout should look like:
 
@@ -94,7 +94,7 @@ At this point you can run tests and make sure everything is working properly.
 ## Step 5: Create a GitHub Repo
 
 Go to your GitHub account and create a new repo named `netbox-healthcheck-plugin`, where
-`netbox-healthcheck-plugin` matches the `project_slug` from your answers to running
+`netbox-healthcheck-plugin` matches the `hyphenated` from your answers to running
 cookiecutter.
 
 Then go to repo > settings > secrets, click on 'New repository secret', add the following
@@ -106,7 +106,7 @@ Then go to repo > settings > secrets, click on 'New repository secret', add the 
 
 ## Step 6: Upload code to GitHub
 
-Back to your develop environment, find the folder named after the `project_slug`.
+Back to your develop environment, find the folder named after the `hyphenated`.
 Move into this folder, and then setup git to use your GitHub repo and upload the
 code:
 
@@ -140,7 +140,7 @@ click on actions link, you should find screen like this:
 ![](http://images.jieyu.ai/images/202104/20210419170304.png)
 
 There should be some workflows running. After they finished, go to [TestPyPI], check if a
-new artifact is published under the name `project_slug`.
+new artifact is published under the name `hyphenated`.
 
 ## Step 7. Check documentation
 

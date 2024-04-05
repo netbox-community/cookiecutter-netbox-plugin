@@ -20,9 +20,12 @@ to initialize most of the other settings.</dd>
 <dd>The name of your new Python package project. This is used in
 documentation, so spaces and any characters are fine here.</dd>
 
-<dt>project_slug</dt>
+<dt>hyphenated</dt>
 <dd>The name of your Python package for PyPI, also as the repository name of GitHub.
 Typically, it is the slugified version of project_name.</dd>
+
+<dt>underscored</dt>
+<dd>The name of the python module and directory in the project.</dd>
 
 <dt>project_short_description</dt>
 <dd>A 1-sentence description of what your Python package does.</dd>
