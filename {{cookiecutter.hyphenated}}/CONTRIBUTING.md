@@ -23,7 +23,7 @@ We love your input! We want to make contributing to this project as easy and tra
 
 ### Report Bugs
 
-Report bugs at https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/issues.
+Report bugs at https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.hyphenated }}/issues.
 
 If you are reporting a bug, please include:
 
@@ -49,7 +49,7 @@ articles, and such.
 
 ### Submit Feedback
 
-The best way to send feedback is to file an issue at https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/issues.
+The best way to send feedback is to file an issue at https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.hyphenated }}/issues.
 
 If you are proposing a feature:
 
@@ -60,13 +60,13 @@ If you are proposing a feature:
 
 ## Get Started!
 
-Ready to contribute? Here's how to set up `{{ cookiecutter.project_slug }}` for local development.
+Ready to contribute? Here's how to set up `{{ cookiecutter.hyphenated }}` for local development.
 
-1. Fork the `{{ cookiecutter.project_slug }}` repo on GitHub.
+1. Fork the `{{ cookiecutter.hyphenated }}` repo on GitHub.
 2. Clone your fork locally
 
     ```
-    $ git clone git@github.com:your_name_here/{{ cookiecutter.project_slug }}.git
+    $ git clone git@github.com:your_name_here/{{ cookiecutter.hyphenated }}.git
     ```
 
 3. Install dependencies and start your virtualenv:
@@ -109,7 +109,7 @@ Before you submit a pull request, check that it meets these guidelines:
    your new functionality into a function with a docstring, and add the
    feature to the list in README.md.
 3. The pull request should work for Python 3.6, 3.7, 3.8 and 3.9. Check
-   https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions
+   https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.hyphenated }}/actions
    and make sure that the tests pass for all supported Python versions.
 
 

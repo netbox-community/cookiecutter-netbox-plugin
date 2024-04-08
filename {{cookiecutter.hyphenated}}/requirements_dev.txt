@@ -2,5 +2,3 @@ black==24.3.0
 flake8==7.0.0
 pip==24.0
 check-manifest==0.49
-pytest==8.1.1
-pytest-cookies==0.7.0
