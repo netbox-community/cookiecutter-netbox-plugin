@@ -16,7 +16,7 @@ The features the plugin provides should be listed here.
 
 | NetBox Version | Plugin Version |
 |----------------|----------------|
-|     3.4        |      0.1.0     |
+|     3.7        |      0.1.0     |
 
 ## Installing
 
@@ -40,11 +40,11 @@ Enable the plugin in `/opt/netbox/netbox/netbox/configuration.py`,
 
 ```python
 PLUGINS = [
-    '{{ cookiecutter.plugin_name }}'
+    '{{ cookiecutter.hyphenated }}'
 ]
 
 PLUGINS_CONFIG = {
-    "{{ cookiecutter.plugin_name }}": {},
+    "{{ cookiecutter.hyphenated }}": {},
 }
 ```
 

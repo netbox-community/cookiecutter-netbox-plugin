@@ -56,3 +56,6 @@ Tracker = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter
 [tool.black]
 line-length = 120
 target_version = ['py39', 'py310', 'py311', 'py312']
+
+[tool.setuptools.package-data]
+{{ cookiecutter.underscored }} = ["templates/**"]
