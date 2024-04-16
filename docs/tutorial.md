@@ -179,6 +179,62 @@ Documentation updates will be published once:
   instructions at [release checklist](pypi_release_checklist.md), trigger first official release and check
   result at [PyPI].
 
+### Configuring trusted publishing
+
+This guide relies on PyPI's [trusted publishing](https://docs.pypi.org/trusted-publishers/) implementation to connect
+to [GitHub Actions CI/CD](https://github.com/features/actions). This is recommended for security reasons, since
+the generated tokens are created for each of your projects
+individually and expire automatically. Otherwise, you'll need to generate an
+[API token](https://pypi.org/help/#apitoken) for both PyPI and TestPyPI. In case of publishing to third-party
+indexes like `devpi <devpi:index>`, you may need to provide a
+username/password combination.
+
+Since this guide will demonstrate uploading to both
+PyPI and TestPyPI, we'll need two trusted publishers configured.
+The following steps will lead you through creating the "pending" publishers
+for your new :term:`PyPI project <Project>`.
+However it is also possible to add [trusted publishing](https://docs.pypi.org/trusted-publishers/) to any
+pre-existing project, if you are its owner.
+
+.. attention::
+
+   If you followed earlier versions of this guide, you
+   have created the secrets `PYPI_API_TOKEN` and `TEST_PYPI_API_TOKEN`
+   for direct PyPI and TestPyPI access. These are obsolete now and
+   you should remove them from your GitHub repository and revoke
+   them in your PyPI and TestPyPI account settings in case you are replacing your old setup with the new one.
+
+
+Let's begin! 🚀
+
+1. Go to https://pypi.org/manage/account/publishing/.
+2. Fill in the name you wish to publish your new
+   `PyPI project <Project>` under
+   (the `name` value in your `setup.cfg` or `pyproject.toml`),
+   the GitHub repository owner's name (org or user),
+   and repository name, and the name of the release workflow file under
+   the `.github/` folder, see `workflow-definition`.
+   Finally, add the name of the GitHub Environment
+   (`pypi`) we're going set up under your repository.
+   Register the trusted publisher.
+3. Now, go to https://test.pypi.org/manage/account/publishing/ and repeat
+   the second step, but this time, enter `testpypi` as the name of the
+   GitHub Environment.
+4. Your "pending" publishers are now ready for their first use and will
+   create your projects automatically once you use them
+   for the first time.
+
+!!! note
+
+    If you don't have a TestPyPI account, you'll need to
+    create it. It's not the same as a regular PyPI account.
+
+
+!!! warning
+
+    For security reasons, you must require `manual approval <https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-protection-rules>`_
+    on each run for the ``pypi`` environment.
+
 ## Step 9. (Optional) Submit it to netbox.dev
 
 If your plugin is public, submit it to [NetBox.dev Plugin Repository](https://netbox.dev/plugins/) for easy discovery by other NetBox users.
