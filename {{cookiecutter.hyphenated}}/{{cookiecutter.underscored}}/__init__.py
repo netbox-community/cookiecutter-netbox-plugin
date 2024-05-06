@@ -5,7 +5,7 @@ __email__ = "{{ cookiecutter.email }}"
 __version__ = "{{ cookiecutter.version }}"
 
 
-from extras.plugins import PluginConfig
+from netbox.plugins import PluginConfig
 
 
 class {{ cookiecutter.__model_name }}Config(PluginConfig):

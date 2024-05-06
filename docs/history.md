@@ -1,5 +1,9 @@
 # History
 
+## v0.2.0
+
+* Updates to target NetBox 4.0
+
 ## v0.1.0
 
 ***first (Beta) release with the following features:***
