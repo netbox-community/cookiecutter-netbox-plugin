@@ -6,7 +6,6 @@ plugin_buttons = [
         link="plugins:{{ cookiecutter.underscored }}:{{ cookiecutter.__model_url_name }}_add",
         title="Add",
         icon_class="mdi mdi-plus-thick",
-        color=ButtonColorChoices.GREEN,
     )
 ]
 

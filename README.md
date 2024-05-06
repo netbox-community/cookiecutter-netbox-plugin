@@ -5,6 +5,8 @@ conform to best practice.
 
 * Documentation: <https://netbox-community.github.io/cookiecutter-netbox-plugin/>
 
+**Note:** Plugins from this version target NetBox 4.0+
+
 ## Features
 
 This tool will create Python project with the following features:

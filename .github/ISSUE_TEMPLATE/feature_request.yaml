@@ -14,7 +14,7 @@ body:
     attributes:
       label: cookiecutter-netbox-plugin version
       description: What version of cookiecutter-netbox-plugin are you currently running?
-      placeholder: v0.1.0
+      placeholder: v0.2.0
     validations:
       required: true
   - type: dropdown
