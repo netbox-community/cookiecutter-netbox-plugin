@@ -1,0 +1,25 @@
+---
+name: Continuous Integration 🔄
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+      - main
+
+jobs:
+  pre-commit:
+    name: Run pre-commit hooks 🪝
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up repository 🧩
+        uses: actions/checkout@v4
+      - name: Set up Python 🐍
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+          cache: "pip"
+      - name: Run pre-commit hooks 🪝
+        uses: pre-commit/action@v3.0.1
+...
