@@ -40,11 +40,11 @@ Enable the plugin in `/opt/netbox/netbox/netbox/configuration.py`,
 
 ```python
 PLUGINS = [
-    '{{ cookiecutter.hyphenated }}'
+    '{{ cookiecutter.underscored }}'
 ]
 
 PLUGINS_CONFIG = {
-    "{{ cookiecutter.hyphenated }}": {},
+    "{{ cookiecutter.underscored }}": {},
 }
 ```
 
