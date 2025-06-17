@@ -38,19 +38,18 @@ Go to this generated folder, the project layout should look like:
 .
 ├── CHANGELOG.md
 ├── CONTRIBUTING.md
-├── LICENSE
-├── MANIFEST.in
-├── Makefile
-├── README.md
 ├── docs
 │   ├── changelog.md
 │   ├── contributing.md
 │   └── index.md
+├── LICENSE
+├── Makefile
+├── MANIFEST.in
 ├── mkdocs.yml
 ├── netbox_healthcheck_plugin
-│   ├── __init__.py
 │   ├── filtersets.py
 │   ├── forms.py
+│   ├── __init__.py
 │   ├── models.py
 │   ├── navigation.py
 │   ├── tables.py
@@ -59,9 +58,9 @@ Go to this generated folder, the project layout should look like:
 │   │       └── healthcheck.html
 │   ├── urls.py
 │   └── views.py
+├── pyproject.toml
+├── README.md
 ├── requirements_dev.txt
-├── setup.cfg
-├── setup.py
 └── tests
     ├── __init__.py
     └── test_netbox_healthcheck_plugin.py
@@ -74,10 +73,10 @@ Here the plugin_name is `HealthCheck`, when you generate yours, it could be othe
 
 Go to your NetBox development environment and make sure the NetBox virtual environment is active.  See [Create Python Virtual Environment](https://docs.netbox.dev/en/stable/development/getting-started/#4-create-a-python-virtual-environment).
 
-To ease development, it is recommended to go ahead and install the plugin at this point using setuptools' `develop` mode. This will create symbolic links within your Python environment to the plugin development directory. Call `setup.py` from the plugin's root directory with the `develop` argument (instead of `install`):
+To ease development, it is recommended to go ahead and install the plugin in editable mode (i.e setuptools' develop mode). Call pip from the plugin's root directory with the `-e` flag:
 
 ```no-highlight
-$ python setup.py develop
+$ pip install -e .
 ```
 
 ## Step 4: Configure NetBox
