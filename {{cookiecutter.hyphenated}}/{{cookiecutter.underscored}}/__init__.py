@@ -12,7 +12,9 @@ class {{ cookiecutter.__model_name }}Config(PluginConfig):
     name = "{{ cookiecutter.underscored }}"
     verbose_name = "{{ cookiecutter.project_name }}"
     description = "{{ cookiecutter.project_short_description }}"
-    version = "version"
+    author= "{{ cookiecutter.full_name }}"
+    author_email = "{{ cookiecutter.email }}"
+    version = __version__
     base_url = "{{ cookiecutter.underscored }}"
 
 
