@@ -6,11 +6,6 @@ When you create a package, you are prompted to enter these values.
 
 The following appear in various parts of your generated project.
 
-
-## Templated Values
-
-The following appear in various parts of your generated project.
-
 <dl>
 <dt>plugin_name</dt>
 <dd>The base name of your plugin (without "NetBox" or "Plugin").  This is used
@@ -76,9 +71,21 @@ This allows your plugin's data to be queried through NetBox's GraphQL endpoint, 
 </dd>
 </dl>
 
-except above settings, for CI/CD, you'll also need configure gitub repsitory secrets
-at page repo > settings > secrtes, and add the following secrets:
+## Additional Configuration
 
-- PERSONAL_TOKEN (required for publishing document to git pages)
-- TEST_PYPI_API_TOKEN (required for publishing dev release to testpypi)
-- PYPI_API_TOKEN (required for publish )
+### Trusted Publishing (Recommended)
+
+Modern plugin projects should use [PyPI Trusted Publishing](https://docs.pypi.org/trusted-publishers/) instead of API tokens. See the [Tutorial](tutorial.md#configuring-trusted-publishing) for detailed setup instructions.
+
+### Legacy API Tokens (Not Recommended)
+
+If you cannot use trusted publishing, you'll need to configure GitHub repository secrets:
+
+1. Go to your repository > Settings > Secrets and variables > Actions
+2. Add the following secrets:
+   - `PERSONAL_TOKEN` - Required for publishing documentation to GitHub Pages ([How to create](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token))
+   - `TEST_PYPI_API_TOKEN` - Required for publishing to TestPyPI ([How to create](https://test.pypi.org/manage/account/))
+   - `PYPI_API_TOKEN` - Required for publishing to PyPI ([How to create](https://pypi.org/manage/account/))
+
+!!! warning "Security Notice"
+    API tokens are being phased out in favor of trusted publishing for improved security. Consider migrating to trusted publishing if possible.
