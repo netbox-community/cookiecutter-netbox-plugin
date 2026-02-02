@@ -22,6 +22,8 @@ The features the plugin provides should be listed here. For example:
 {% endif -%}
 - Full change logging and journaling support
 - Integration with NetBox's permission system
+- Global search integration for finding {{ cookiecutter.plugin_name }} objects
+- Comprehensive filtering and table views
 
 ## Screenshots
 

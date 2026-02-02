@@ -87,6 +87,7 @@ Go to this generated folder, the project layout should look like:
 │   ├── graphql.py               # GraphQL (optional)
 │   ├── models.py
 │   ├── navigation.py
+│   ├── search.py                # Global search integration
 │   ├── tables.py
 │   ├── urls.py
 │   └── views.py
@@ -104,6 +105,21 @@ Here the plugin_name is `HealthCheck`. When you generate yours, it may have a di
 !!! note "Optional Components"
     - The `api/` directory is only created if you select `include_rest_api = yes`
     - The `graphql.py` file is only created if you select `include_graphql = yes`
+
+### Key Features Included
+
+The generated plugin includes several pre-configured features:
+
+- **Models** (`models.py`) - NetBox model with tags and custom fields support
+- **Views** (`views.py`) - CRUD views for web UI
+- **Forms** (`forms.py`) - Model forms for data entry
+- **Tables** (`tables.py`) - Data tables for list views
+- **Navigation** (`navigation.py`) - Menu integration
+- **Filtersets** (`filtersets.py`) - Search and filter functionality
+- **Search** (`search.py`) - Global search integration
+- **Testing** (`testing/`, `tests/`) - Comprehensive test infrastructure
+- **API** (`api/`) - REST API endpoints (optional)
+- **GraphQL** (`graphql.py`) - GraphQL schema (optional)
 
 ## Step 3: Development Installation
 
