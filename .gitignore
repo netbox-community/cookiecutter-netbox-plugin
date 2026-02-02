@@ -277,3 +277,7 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+.devcontainer/db_backup.sql.gz
+.devcontainer/postgres-data
+.devcontainer/*.env

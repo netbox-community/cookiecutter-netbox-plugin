@@ -1,0 +1,25 @@
+name: store-data-plugin_devcontainer
+services:
+  netbox:
+    image: netboxcommunity/netbox:v4.3
+    depends_on:
+      - postgres
+      - redis
+    env_file:
+      - dev.env
+    volumes:
+      - ../:/source
+      - ./configuration/plugins.py:/etc/netbox/config/plugins.py:ro
+    ports:
+      - "8000:8080"
+    command: sleep infinity
+
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: netbox
+      POSTGRES_USER: netbox
+      POSTGRES_PASSWORD: password # pragma: allowlist secret
+
+  redis:
+    image: redis:7-alpine
