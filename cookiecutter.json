@@ -12,5 +12,7 @@
   "github_username": "",
   "version": "0.1.0",
   "open_source_license": ["Apache-2.0", "MIT", "BSD", "ISC", "GPL-3.0-only", "Not open source"],
+  "include_rest_api": ["yes", "no"],
+  "include_graphql": ["yes", "no"],
   "_copy_without_render": ["docs/changelog.md", "docs/contributing.md", "docs/index.md", ".github/workflows/*.yml"]
 }

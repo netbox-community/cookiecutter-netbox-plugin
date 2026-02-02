@@ -1,5 +1,3 @@
-from django.db.models import Count
-
 from netbox.views import generic
 from . import filtersets, forms, models, tables
 
@@ -11,6 +9,7 @@ class {{ cookiecutter.__model_name }}View(generic.ObjectView):
 class {{ cookiecutter.__model_name }}ListView(generic.ObjectListView):
     queryset = models.{{ cookiecutter.__model_name }}.objects.all()
     table = tables.{{ cookiecutter.__model_name }}Table
+    filterset = filtersets.{{ cookiecutter.__model_name }}FilterSet
 
 
 class {{ cookiecutter.__model_name }}EditView(generic.ObjectEditView):

@@ -14,9 +14,25 @@ The features the plugin provides should be listed here.
 
 ## Compatibility
 
+This plugin requires **NetBox 4.5** or later.
+
 | NetBox Version | Plugin Version |
 |----------------|----------------|
-|     4.0        |      0.1.0     |
+|     4.5+       |      0.1.0     |
+
+For more detailed compatibility information, see [COMPATIBILITY.md](COMPATIBILITY.md).
+{% if cookiecutter.include_rest_api == "yes" %}
+## REST API
+
+This plugin provides a REST API endpoint for managing {{ cookiecutter.plugin_name }} resources:
+
+- `/api/plugins/{{ cookiecutter.underscored }}/{{ cookiecutter.__model_url }}s/` - List and create {{ cookiecutter.__model_name }} objects
+{% endif %}
+{% if cookiecutter.include_graphql == "yes" %}
+## GraphQL
+
+This plugin provides GraphQL support for querying {{ cookiecutter.plugin_name }} resources through NetBox's GraphQL API.
+{% endif %}
 
 ## Installing
 

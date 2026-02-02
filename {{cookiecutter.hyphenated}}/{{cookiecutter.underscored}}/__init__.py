@@ -16,6 +16,11 @@ class {{ cookiecutter.__model_name }}Config(PluginConfig):
     author_email = "{{ cookiecutter.email }}"
     version = __version__
     base_url = "{{ cookiecutter.underscored }}"
+    min_version = "4.5.0"
+    max_version = "4.9.999"
+{% if cookiecutter.include_graphql == "yes" -%}
+    graphql_schema = "{{ cookiecutter.underscored }}.graphql.schema"
+{% endif %}
 
 
 config = {{ cookiecutter.__model_name }}Config
