@@ -32,13 +32,7 @@ indexes = (
 
 The `fields` attribute defines which model fields are searchable and their relative importance. Higher weights mean higher priority in search results.
 
-For detailed information on field weights, display attributes, custom categories, and other search configuration options, see the [NetBox Search Documentation](https://netboxlabs.com/docs/netbox/development/search/).
-
-**Key topics in the NetBox documentation:**
-- [Field Weight Guidance](https://netboxlabs.com/docs/netbox/development/search/#field-weight-guidance)
-- [Display Attributes](https://netboxlabs.com/docs/netbox/development/search/#display-attributes)
-- [Custom Categories](https://netboxlabs.com/docs/netbox/development/search/#custom-category)
-- [Searchable Field Types](https://netboxlabs.com/docs/netbox/development/search/#searchable-field-types)
+For detailed information on implementing search indexes and field weight guidance, see the [NetBox Search Documentation](https://netboxlabs.com/docs/netbox/development/search/).
 
 ## Multiple Models
 
@@ -64,9 +58,3 @@ indexes = (
     SecondaryModelIndex,
 )
 ```
-
-## Registration
-
-The PluginConfig automatically discovers and registers your search indexes from the `indexes` tuple. No additional configuration is needed!
-
-The registration happens when NetBox loads your plugin, making your models immediately searchable.
