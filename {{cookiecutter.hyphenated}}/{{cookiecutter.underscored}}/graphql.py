@@ -1,4 +1,14 @@
 {% if cookiecutter.include_graphql == "yes" -%}
+"""
+GraphQL schema for {{ cookiecutter.project_name }}.
+
+For more information on NetBox GraphQL, see:
+https://docs.netbox.dev/en/stable/plugins/development/graphql/
+
+For Graphene (GraphQL library) documentation, see:
+https://docs.graphene-python.org/
+"""
+
 import graphene
 from netbox.graphql.types import NetBoxObjectType
 

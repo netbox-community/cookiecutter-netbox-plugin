@@ -1,3 +1,10 @@
+"""
+Navigation menu items for {{ cookiecutter.project_name }}.
+
+For more information on navigation menus, see:
+https://docs.netbox.dev/en/stable/plugins/development/navigation/
+"""
+
 from netbox.plugins import PluginMenuButton, PluginMenuItem
 
 

@@ -1,3 +1,13 @@
+"""
+URL patterns for {{ cookiecutter.project_name }}.
+
+For more information on URL routing, see:
+https://docs.netbox.dev/en/stable/plugins/development/views/#url-registration
+
+For Django URL patterns, see:
+https://docs.djangoproject.com/en/stable/topics/http/urls/
+"""
+
 from django.urls import path
 from netbox.views.generic import ObjectChangeLogView
 

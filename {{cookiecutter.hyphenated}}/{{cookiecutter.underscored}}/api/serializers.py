@@ -1,4 +1,14 @@
 {% if cookiecutter.include_rest_api == "yes" -%}
+"""
+API serializers for {{ cookiecutter.project_name }}.
+
+For more information on NetBox REST API serializers, see:
+https://docs.netbox.dev/en/stable/plugins/development/rest-api/#serializers
+
+For Django REST Framework serializers, see:
+https://www.django-rest-framework.org/api-guide/serializers/
+"""
+
 from rest_framework import serializers
 from netbox.api.serializers import NetBoxModelSerializer
 

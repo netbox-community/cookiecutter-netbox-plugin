@@ -1,3 +1,13 @@
+"""
+Views for {{ cookiecutter.project_name }}.
+
+For more information on NetBox views, see:
+https://docs.netbox.dev/en/stable/plugins/development/views/
+
+For generic view classes, see:
+https://docs.netbox.dev/en/stable/development/views/
+"""
+
 from netbox.views import generic
 from . import filtersets, forms, models, tables
 

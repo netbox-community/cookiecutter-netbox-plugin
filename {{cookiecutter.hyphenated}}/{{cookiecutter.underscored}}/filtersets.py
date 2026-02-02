@@ -1,3 +1,13 @@
+"""
+Filtersets for {{ cookiecutter.project_name }}.
+
+For more information on NetBox filtersets, see:
+https://docs.netbox.dev/en/stable/plugins/development/filtersets/
+
+For django-filters documentation, see:
+https://django-filter.readthedocs.io/
+"""
+
 from netbox.filtersets import NetBoxModelFilterSet
 from .models import {{ cookiecutter.__model_name }}
 

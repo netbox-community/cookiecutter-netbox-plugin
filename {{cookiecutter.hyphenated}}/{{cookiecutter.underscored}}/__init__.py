@@ -1,4 +1,11 @@
-"""Top-level package for {{ cookiecutter.project_name }}."""
+"""
+{{ cookiecutter.project_name }}
+
+Plugin configuration for {{ cookiecutter.project_name }}.
+
+For a complete list of PluginConfig attributes, see:
+https://docs.netbox.dev/en/stable/plugins/development/#pluginconfig-attributes
+"""
 
 __author__ = """{{ cookiecutter.full_name }}"""
 __email__ = "{{ cookiecutter.email }}"

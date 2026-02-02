@@ -1,3 +1,13 @@
+"""
+Models for {{ cookiecutter.project_name }}.
+
+For more information on NetBox models, see:
+https://docs.netbox.dev/en/stable/plugins/development/models/
+
+For NetBox model features (tags, custom fields, change logging, etc.), see:
+https://docs.netbox.dev/en/stable/development/models/#netbox-model-features
+"""
+
 from django.db import models
 from django.urls import reverse
 from netbox.models import NetBoxModel
