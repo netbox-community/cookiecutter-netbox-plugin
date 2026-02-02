@@ -7,7 +7,6 @@ nav:
   - Tutorial: tutorial.md
   - Prompts: prompts.md
   - Features:
-    - Testing: testing.md
     - Search: search.md
   - Release checklist: pypi_release_checklist.md
   - History: history.md
