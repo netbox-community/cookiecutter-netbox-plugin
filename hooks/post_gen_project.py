@@ -21,6 +21,8 @@ if __name__ == "__main__":
 
     if "no" == "{{ cookiecutter.include_rest_api }}":
         remove_dir("{{ cookiecutter.underscored }}/api")
+        remove_file("{{ cookiecutter.underscored }}/tests/test_api.py")
 
     if "no" == "{{ cookiecutter.include_graphql }}":
         remove_file("{{ cookiecutter.underscored }}/graphql.py")
+        remove_file("{{ cookiecutter.underscored }}/tests/test_graphql.py")
