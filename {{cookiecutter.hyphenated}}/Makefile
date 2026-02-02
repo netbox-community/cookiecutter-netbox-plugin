@@ -1,4 +1,4 @@
-sources = {{ cookiecutter.project_name }}
+sources = {{ cookiecutter.underscored }}
 
 .PHONY: test format lint unittest pre-commit clean
 test: format lint unittest
