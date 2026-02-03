@@ -144,20 +144,11 @@ PLUGINS = [
 
 ## Step 5: Create Database Migrations
 
-Your plugin includes a model that needs a database table. Generate and run the migrations:
+Your plugin includes a model that needs a database table.
 
-```bash
-# From your NetBox directory
-cd /path/to/netbox
+Make sure your NetBox virtual environment is active. See [Create a Virtual Environment](https://netboxlabs.com/docs/netbox/plugins/development/#create-a-virtual-environment) in the NetBox plugin development guide.
 
-# Generate migrations for your plugin
-python netbox/manage.py makemigrations netbox_healthcheck_plugin
-
-# Apply the migrations
-python netbox/manage.py migrate
-```
-
-You should see output indicating that migrations were created and applied successfully.
+Then create and run migrations for your plugin. For detailed instructions, see [Database Migrations](https://netboxlabs.com/docs/netbox/plugins/development/models/#database-migrations) in the NetBox documentation.
 
 !!! tip "Migration Management"
     Whenever you modify your plugin's models (add fields, change field types, etc.), you'll need to create new migrations. Always commit migration files to your repository.
@@ -170,10 +161,10 @@ To run tests locally (from your NetBox directory):
 
 ```bash
 # Run all tests
-python netbox/manage.py test netbox_healthcheck_plugin.tests --parallel -v2
+$ ./manage.py test netbox_healthcheck_plugin.tests --parallel -v2
 
 # Run specific test file
-python netbox/manage.py test netbox_healthcheck_plugin.tests.test_models
+$ ./manage.py test netbox_healthcheck_plugin.tests.test_models
 ```
 
 The CI workflow will automatically run tests on every push and pull request.

@@ -140,13 +140,6 @@ Check the Actions tab in your GitHub repository for error messages. Common issue
 - Check that environment names match in both PyPI and GitHub workflow
 - Ensure version number in pyproject.toml hasn't been used before
 
-### Manual Approval Not Showing
-
-GitHub environment protection rules must be configured:
-1. Go to repository Settings → Environments
-2. Click on `pypi` environment
-3. Enable "Required reviewers" and add yourself
-
 ## Getting Help
 
 - **[PyPI Help](https://pypi.org/help/)** - PyPI documentation
