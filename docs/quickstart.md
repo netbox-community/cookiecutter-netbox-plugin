@@ -155,7 +155,7 @@ Then create and run migrations for your plugin. For detailed instructions, see [
 
 ## Step 6: Run Tests
 
-The generated plugin includes comprehensive testing infrastructure. See the [Testing Guide](../TESTING.md) in your generated project for details.
+The generated plugin includes comprehensive testing infrastructure. See the Testing Guide (`TESTING.md`) in your generated project for details.
 
 To run tests locally (from your NetBox directory):
 

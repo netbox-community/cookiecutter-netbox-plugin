@@ -4,8 +4,25 @@ Cookiecutter template for a NetBox plugin, built with popular develop tools and
 conform to best practice.
 
 * Documentation: <https://netbox-community.github.io/cookiecutter-netbox-plugin/>
+* Latest changes: [CHANGELOG.md](CHANGELOG.md)
 
-**Note:** Plugins from this version target NetBox 4.0+
+**Note:** Plugins from this version target NetBox 4.5+
+
+## Quickstart
+
+Install the latest Cookiecutter if you haven't installed it yet (this requires Cookiecutter 2.6.0 or higher):
+
+```
+pip install -U cookiecutter
+```
+
+Generate a Python package project:
+
+```
+cookiecutter https://github.com/netbox-community/cookiecutter-netbox-plugin.git
+```
+
+Then follow the **[Quickstart Guide](docs/quickstart.md)** to finish other configurations.
 
 ## Features
 
@@ -20,19 +37,3 @@ This tool will create Python project with the following features:
     - Publish documentation automatically
     - PyPI publishing with trusted publishers
 * Host your documentation from [GitHub Pages](https://pages.github.com) with zero-config
-
-## Quickstart
-
-Install the latest Cookiecutter if you haven't installed it yet (this requires Cookiecutter 1.4.0 or higher):
-
-```
-pip install -U cookiecutter
-```
-
-Generate a Python package project:
-
-```
-cookiecutter https://github.com/netbox-community/cookiecutter-netbox-plugin.git
-```
-
-Then follow the **[Quickstart Guide](docs/quickstart.md)** to finish other configurations.
