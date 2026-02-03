@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://github.com/netbox-community/cookiecutter-netbox-plugin/</loc>
+         <lastmod>2026-02-03</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/netbox-community/cookiecutter-netbox-plugin/extending/</loc>
+         <lastmod>2026-02-03</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/netbox-community/cookiecutter-netbox-plugin/history/</loc>
+         <lastmod>2026-02-03</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/netbox-community/cookiecutter-netbox-plugin/prompts/</loc>
+         <lastmod>2026-02-03</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/netbox-community/cookiecutter-netbox-plugin/publishing/</loc>
+         <lastmod>2026-02-03</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/netbox-community/cookiecutter-netbox-plugin/pypi_release_checklist/</loc>
+         <lastmod>2026-02-03</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/netbox-community/cookiecutter-netbox-plugin/quickstart/</loc>
+         <lastmod>2026-02-03</lastmod>
+    </url>
+</urlset>

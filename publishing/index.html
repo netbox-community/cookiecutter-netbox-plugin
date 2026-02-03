@@ -1,0 +1,1082 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://github.com/netbox-community/cookiecutter-netbox-plugin/publishing/">
+      
+      
+        <link rel="prev" href="../extending/">
+      
+      
+        <link rel="next" href="../prompts/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Publishing Your Plugin - Cookiecutter NetBox Plugin</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#publishing-your-plugin" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Cookiecutter NetBox Plugin" class="md-header__button md-logo" aria-label="Cookiecutter NetBox Plugin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cookiecutter NetBox Plugin
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Publishing Your Plugin
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/netbox-community/cookiecutter-netbox-plugin" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    netbox-community/cookiecutter-netbox-plugin
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Cookiecutter NetBox Plugin" class="md-nav__button md-logo" aria-label="Cookiecutter NetBox Plugin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cookiecutter NetBox Plugin
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/netbox-community/cookiecutter-netbox-plugin" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    netbox-community/cookiecutter-netbox-plugin
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extending/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extending Your Plugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publishing Your Plugin
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publishing Your Plugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#publishing-your-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Publishing Your Plugin
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publishing Your Plugin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documentation Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-pages-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Pages Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-trusted-publishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuring Trusted Publishing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring Trusted Publishing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-up-trusted-publishers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set Up Trusted Publishers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Set Up Trusted Publishers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pypi-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PyPI Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testpypi-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TestPyPI Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#making-your-first-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making Your First Release
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#submit-to-netboxdev" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Submit to NetBox.dev
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documentation-not-building" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation Not Building
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publishing-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Publishing Fails
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Help
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prompts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pypi_release_checklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../history/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    History
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#publishing-your-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Publishing Your Plugin
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publishing Your Plugin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documentation Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-pages-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Pages Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-trusted-publishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuring Trusted Publishing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring Trusted Publishing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-up-trusted-publishers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set Up Trusted Publishers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Set Up Trusted Publishers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pypi-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PyPI Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testpypi-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TestPyPI Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#making-your-first-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making Your First Release
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#submit-to-netboxdev" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Submit to NetBox.dev
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documentation-not-building" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation Not Building
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publishing-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Publishing Fails
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Help
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Publishing Your Plugin</h1>
+
+<h2 id="publishing-your-plugin">Publishing Your Plugin<a class="headerlink" href="#publishing-your-plugin" title="Permanent link">&para;</a></h2>
+<p>Once your plugin is ready, you can publish it to share with the NetBox community.</p>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
+<p>You will need accounts on:
+- <a href="https://github.com/">GitHub</a> (already have this from the quickstart)
+- <a href="https://pypi.org">PyPI</a> - Python Package Index
+- <a href="https://test.pypi.org/">TestPyPI</a> - PyPI testing environment</p>
+<h3 id="documentation-setup">Documentation Setup<a class="headerlink" href="#documentation-setup" title="Permanent link">&para;</a></h3>
+<p>Your plugin documentation will be published at <code>https://{your_github_account}.github.io/{your_repo}</code>.</p>
+<h4 id="github-pages-configuration">GitHub Pages Configuration<a class="headerlink" href="#github-pages-configuration" title="Permanent link">&para;</a></h4>
+<p>Configure GitHub Pages for your repository:</p>
+<ol>
+<li>Your repo must be public</li>
+<li>Go to your repo's Settings</li>
+<li>Navigate to Pages in the left menu</li>
+<li>Under "Build and deployment":</li>
+<li>Set Source to "Deploy from a branch"</li>
+<li>Choose "gh-pages" branch and "/(root)" folder</li>
+<li>Click Save</li>
+</ol>
+<p>Documentation will appear within 10 minutes. If not, you can manually deploy:</p>
+<ol>
+<li>
+<p>Install documentation packages in your local environment:
+   <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>mkdocs-material<span class="w"> </span>mkdocs-autorefs<span class="w"> </span>mkdocs-material-extensions<span class="w"> </span>mkdocstrings<span class="w"> </span>mkdocstrings-python-legacy<span class="w"> </span>mkdocs-include-markdown-plugin
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p>Deploy:
+   <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdocs<span class="w"> </span>gh-deploy
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Automatic Updates</p>
+<p>Documentation updates are published automatically when:</p>
+<ol>
+<li>A commit is tagged with a version starting with 'v' (e.g., v1.0.0)</li>
+<li>GitHub CI tests pass</li>
+</ol>
+</div>
+<h3 id="configuring-trusted-publishing">Configuring Trusted Publishing<a class="headerlink" href="#configuring-trusted-publishing" title="Permanent link">&para;</a></h3>
+<p>Modern PyPI deployment uses <a href="https://docs.pypi.org/trusted-publishers/">Trusted Publishing</a> instead of API tokens. This is more secure because tokens are created per-project and expire automatically.</p>
+<div class="admonition attention">
+<p class="admonition-title">Migrating from API Tokens</p>
+<p>If you previously used API tokens (<code>PYPI_API_TOKEN</code> and <code>TEST_PYPI_API_TOKEN</code> secrets), remove them from your GitHub repository and revoke them in PyPI/TestPyPI account settings.</p>
+</div>
+<h4 id="set-up-trusted-publishers">Set Up Trusted Publishers<a class="headerlink" href="#set-up-trusted-publishers" title="Permanent link">&para;</a></h4>
+<p>Since we'll publish to both PyPI and TestPyPI, you need two trusted publishers configured.</p>
+<h5 id="pypi-setup">PyPI Setup<a class="headerlink" href="#pypi-setup" title="Permanent link">&para;</a></h5>
+<ol>
+<li>Go to https://pypi.org/manage/account/publishing/</li>
+<li>Fill in the form:</li>
+<li><strong>PyPI Project Name</strong>: The <code>name</code> value from your <code>pyproject.toml</code></li>
+<li><strong>Owner</strong>: Your GitHub username or organization</li>
+<li><strong>Repository name</strong>: Your repository name (e.g., <code>netbox-healthcheck-plugin</code>)</li>
+<li><strong>Workflow name</strong>: <code>publish-pypi.yaml</code></li>
+<li><strong>Environment name</strong>: <code>pypi</code></li>
+<li>Click "Add" to register the trusted publisher</li>
+</ol>
+<h5 id="testpypi-setup">TestPyPI Setup<a class="headerlink" href="#testpypi-setup" title="Permanent link">&para;</a></h5>
+<ol>
+<li>Go to https://test.pypi.org/manage/account/publishing/</li>
+<li>Fill in the same form as above, but use:</li>
+<li><strong>Environment name</strong>: <code>testpypi</code></li>
+<li>Click "Add" to register the trusted publisher</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">TestPyPI Account</p>
+<p>TestPyPI requires a separate account from PyPI. Create one at https://test.pypi.org if needed.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Manual Approval Required</p>
+<p>For security, configure <a href="https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-protection-rules">manual approval</a> for the <code>pypi</code> environment in your GitHub repository settings.</p>
+</div>
+<p>Your "pending" publishers are now ready. They'll automatically create your PyPI projects on first use.</p>
+<h3 id="making-your-first-release">Making Your First Release<a class="headerlink" href="#making-your-first-release" title="Permanent link">&para;</a></h3>
+<p>When you're ready to release:</p>
+<ol>
+<li><strong>Update version number</strong> in <code>pyproject.toml</code></li>
+<li><strong>Update CHANGELOG.md</strong> with release notes</li>
+<li><strong>Create a pull request</strong> with your changes</li>
+<li><strong>Merge to main branch</strong> after review and tests pass</li>
+<li><strong>Create a git tag</strong> and push:
+   <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>tag<span class="w"> </span>v0.1.0
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>v0.1.0
+</code></pre></div></td></tr></table></div></li>
+</ol>
+<p>The GitHub Actions workflow will automatically:
+- Run tests
+- Build the package
+- Publish to PyPI (after manual approval)
+- Deploy documentation
+- Create a GitHub release with changelog</p>
+<p>See the <a href="../pypi_release_checklist/">Release Checklist</a> for detailed step-by-step instructions.</p>
+<h3 id="submit-to-netboxdev">Submit to NetBox.dev<a class="headerlink" href="#submit-to-netboxdev" title="Permanent link">&para;</a></h3>
+<p>Share your plugin with the community by submitting it to the <a href="https://netbox.dev/plugins/">NetBox Plugin Registry</a>.</p>
+<p>Benefits:
+- Increased visibility
+- Easier discovery by NetBox users
+- Listed in the official plugin directory</p>
+<p>To submit:
+1. Go to https://netbox.dev/plugins/
+2. Click "Submit a Plugin"
+3. Follow the submission instructions</p>
+<h3 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Semantic Versioning</strong>: Use <a href="https://semver.org/">semver</a> for version numbers (MAJOR.MINOR.PATCH)</li>
+<li><strong>Keep Changelog Updated</strong>: Document all changes between releases</li>
+<li><strong>Test Before Release</strong>: Ensure all tests pass and documentation builds</li>
+<li><strong>Tag Releases</strong>: Use git tags that match version numbers (v1.0.0, v1.0.1, etc.)</li>
+<li><strong>Write Good Release Notes</strong>: Help users understand what changed</li>
+</ul>
+<h3 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h3>
+<h4 id="documentation-not-building">Documentation Not Building<a class="headerlink" href="#documentation-not-building" title="Permanent link">&para;</a></h4>
+<p>Check the Actions tab in your GitHub repository for error messages. Common issues:
+- Missing dependencies in mkdocs.yml
+- Broken markdown syntax
+- Invalid links</p>
+<h4 id="publishing-fails">Publishing Fails<a class="headerlink" href="#publishing-fails" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Verify trusted publishing is configured correctly in PyPI/TestPyPI</li>
+<li>Check that environment names match in both PyPI and GitHub workflow</li>
+<li>Ensure version number in pyproject.toml hasn't been used before</li>
+</ul>
+<h3 id="getting-help">Getting Help<a class="headerlink" href="#getting-help" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><a href="https://pypi.org/help/">PyPI Help</a></strong> - PyPI documentation</li>
+<li><strong><a href="https://docs.github.com/en/actions">GitHub Actions Docs</a></strong> - Workflow help</li>
+<li><strong><a href="https://github.com/netbox-community/netbox/discussions">NetBox Discussions</a></strong> - Community support</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.indexes", "navigation.instant", "navigation.tabs.sticky"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
