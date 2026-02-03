@@ -20,7 +20,10 @@ if __name__ == "__main__":
         remove_file("LICENSE")
 
     if "no" == "{{ cookiecutter.include_rest_api }}":
-        remove_dir("{{ cookiecutter.underscored }}/api")
+        # Keep api/ directory and serializers.py (required for NetBox events)
+        # but remove REST API views and URLs
+        remove_file("{{ cookiecutter.underscored }}/api/views.py")
+        remove_file("{{ cookiecutter.underscored }}/api/urls.py")
         remove_file("{{ cookiecutter.underscored }}/tests/test_api.py")
 
     if "no" == "{{ cookiecutter.include_graphql }}":
