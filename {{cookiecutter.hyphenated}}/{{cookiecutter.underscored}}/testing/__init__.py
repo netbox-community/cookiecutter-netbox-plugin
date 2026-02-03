@@ -43,14 +43,13 @@ class PluginTestCase(DjangoTestCase):
         if self.user_permissions:
             self.add_permissions(*self.user_permissions)
 
-    def create_test_user(self, username: str = "testuser", is_staff: bool = True,
+    def create_test_user(self, username: str = "testuser",
                         is_superuser: bool = False) -> User:
         """
         Create a test user with sensible defaults.
 
         Args:
             username: Username for the test user
-            is_staff: Whether user has staff access
             is_superuser: Whether user is a superuser
 
         Returns:
@@ -59,7 +58,6 @@ class PluginTestCase(DjangoTestCase):
         return User.objects.create_user(
             username=username,
             email=f"{username}@example.com",
-            is_staff=is_staff,
             is_superuser=is_superuser,
             password="testpass123"
         )
