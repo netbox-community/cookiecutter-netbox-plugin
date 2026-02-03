@@ -4,11 +4,11 @@ This document tracks the minimum and maximum supported NetBox versions for each 
 
 | Plugin Version | Minimum NetBox Version | Maximum NetBox Version |
 |----------------|------------------------|------------------------|
-| {{ cookiecutter.version }} | 4.5.0 | 4.9.999 |
+| {{ cookiecutter.version }} | 4.5.0 | 4.5.99 |
 
 ## Notes
 
-- This plugin requires Python 3.11 or later
+- This plugin requires Python 3.12 or later
 - Always test your plugin with the target NetBox version before upgrading in production
 - Check the [NetBox release notes](https://docs.netbox.dev/en/stable/release-notes/) for breaking changes
 

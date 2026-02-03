@@ -6,7 +6,7 @@ This guide will help you create and test a NetBox plugin in minutes.
 
 You will need:
 - [NetBox](https://github.com/netbox-community/netbox) development environment
-- Python 3.11 or higher
+- Python 3.12 or higher
 - Git and [GitHub](https://github.com/) account
 
 If you are new to Git and GitHub, check out the tutorials at [GitHub Help](https://help.github.com/).

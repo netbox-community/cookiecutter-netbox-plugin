@@ -44,7 +44,7 @@ For more detailed compatibility information, see [COMPATIBILITY.md](COMPATIBILIT
 
 This plugin requires:
 - NetBox {{ cookiecutter.version }} or later (NetBox 4.5+)
-- Python 3.11 or later
+- Python 3.12 or later
 
 No additional Python packages are required beyond NetBox's core dependencies.
 {% if cookiecutter.include_rest_api == "yes" %}
