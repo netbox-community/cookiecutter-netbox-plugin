@@ -75,7 +75,7 @@ This allows your plugin's data to be queried through NetBox's GraphQL endpoint, 
 
 ### Trusted Publishing (Recommended)
 
-Modern plugin projects should use [PyPI Trusted Publishing](https://docs.pypi.org/trusted-publishers/) instead of API tokens. See the [Tutorial](tutorial.md#configuring-trusted-publishing) for detailed setup instructions.
+Modern plugin projects should use [PyPI Trusted Publishing](https://docs.pypi.org/trusted-publishers/) instead of API tokens. See the [Publishing Guide](publishing.md#configuring-trusted-publishing) for detailed setup instructions.
 
 ### Legacy API Tokens (Not Recommended)
 
