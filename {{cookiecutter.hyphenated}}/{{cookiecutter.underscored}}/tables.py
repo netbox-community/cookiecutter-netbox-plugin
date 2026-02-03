@@ -1,5 +1,15 @@
+"""
+Tables for {{ cookiecutter.project_name }}.
+
+For more information on NetBox tables, see:
+https://docs.netbox.dev/en/stable/plugins/development/tables/
+
+For django-tables2 documentation, see:
+https://django-tables2.readthedocs.io/
+"""
+
 import django_tables2 as tables
-from netbox.tables import NetBoxTable, ChoiceFieldColumn
+from netbox.tables import NetBoxTable
 
 from .models import {{ cookiecutter.__model_name }}
 

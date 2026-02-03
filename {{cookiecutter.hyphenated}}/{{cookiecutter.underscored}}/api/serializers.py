@@ -1,0 +1,33 @@
+"""
+API serializers for {{ cookiecutter.project_name }}.
+
+Serializers are required for NetBox event handling (webhooks, change logging).
+{% if cookiecutter.include_rest_api == "yes" -%}
+They also power the REST API endpoints.
+{%- else -%}
+REST API endpoints are disabled for this plugin.
+{%- endif %}
+
+For more information on NetBox REST API serializers, see:
+https://docs.netbox.dev/en/stable/plugins/development/rest-api/#serializers
+
+For Django REST Framework serializers, see:
+https://www.django-rest-framework.org/api-guide/serializers/
+"""
+
+from netbox.api.serializers import NetBoxModelSerializer
+from rest_framework import serializers
+
+from ..models import {{ cookiecutter.__model_name }}
+
+
+class {{ cookiecutter.__model_name }}Serializer(NetBoxModelSerializer):
+{%- if cookiecutter.include_rest_api == "yes" %}
+    url = serializers.HyperlinkedIdentityField(
+        view_name="plugins-api:{{ cookiecutter.underscored }}-api:{{ cookiecutter.__model_url_name }}-detail"
+    )
+{%- endif %}
+
+    class Meta:
+        model = {{ cookiecutter.__model_name }}
+        fields = ("id", {% if cookiecutter.include_rest_api == "yes" %}"url", {% endif %}"display", "name", "tags", "custom_fields", "created", "last_updated")

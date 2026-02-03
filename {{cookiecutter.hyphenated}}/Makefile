@@ -1,14 +1,14 @@
-sources = {{ cookiecutter.project_name }}
+sources = {{ cookiecutter.underscored }}
 
 .PHONY: test format lint unittest pre-commit clean
 test: format lint unittest
 
 format:
-	isort $(sources) tests
-	black $(sources) tests
+	ruff check --select I --fix $(sources) tests
+	ruff format $(sources) tests
 
 lint:
-	flake8 $(sources) tests
+	ruff check $(sources) tests
 
 pre-commit:
 	pre-commit run --all-files

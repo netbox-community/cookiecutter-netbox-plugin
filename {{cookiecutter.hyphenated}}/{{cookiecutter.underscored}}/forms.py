@@ -1,7 +1,11 @@
-from django import forms
-from ipam.models import Prefix
-from netbox.forms import NetBoxModelForm, NetBoxModelFilterSetForm
-from utilities.forms.fields import CommentField, DynamicModelChoiceField
+"""
+Forms for {{ cookiecutter.project_name }}.
+
+For more information on NetBox forms, see:
+https://docs.netbox.dev/en/stable/plugins/development/forms/
+"""
+
+from netbox.forms import NetBoxModelForm
 
 from .models import {{ cookiecutter.__model_name }}
 
