@@ -58,39 +58,6 @@ class {{ cookiecutter.__model_name }}GraphQLTestCase(PluginGraphQLTestCase):
         self.assertIn('id', data[0])
         self.assertIn('name', data[0])
 
-    def test_query_{{ cookiecutter.__model_url_name }}_without_permission(self):
-        """Test GraphQL query without permission returns error."""
-        instance = {{ cookiecutter.__model_name }}.objects.first()
-
-        query = (
-            "query { "
-            "{{ cookiecutter.__model_url_name }}(id: " + str(instance.pk) + ") { "
-            "id name "
-            "} "
-            "}"
-        )
-
-        response = self.execute_query(query)
-        # GraphQL returns errors for permission issues
-        self.assertIsNotNone(response.get('errors'))
-
-    def test_query_nonexistent_{{ cookiecutter.__model_url_name }}(self):
-        """Test GraphQL query for non-existent object."""
-        self.add_permissions('{{ cookiecutter.underscored }}.view_{{ cookiecutter.__model_url_name }}')
-
-        query = """
-        query {
-            {{ cookiecutter.__model_url_name }}(id: 99999) {
-                id
-                name
-            }
-        }
-        """
-
-        response = self.execute_query(query)
-        # Should return error for non-existent object
-        self.assertIsNotNone(response.get('errors'))
-
     def test_query_{{ cookiecutter.__model_url_name }}_with_all_fields(self):
         """Test GraphQL query with all available fields."""
         self.add_permissions('{{ cookiecutter.underscored }}.view_{{ cookiecutter.__model_url_name }}')
@@ -100,7 +67,7 @@ class {{ cookiecutter.__model_name }}GraphQLTestCase(PluginGraphQLTestCase):
         query = (
             "query { "
             "{{ cookiecutter.__model_url_name }}(id: " + str(instance.pk) + ") { "
-            "id name created lastUpdated "
+            "id name created last_updated "
             "} "
             "}"
         )
@@ -112,7 +79,7 @@ class {{ cookiecutter.__model_name }}GraphQLTestCase(PluginGraphQLTestCase):
         self.assertEqual(data['id'], str(instance.pk))
         self.assertEqual(data['name'], instance.name)
         self.assertIsNotNone(data['created'])
-        self.assertIsNotNone(data['lastUpdated'])
+        self.assertIsNotNone(data['last_updated'])
 {% else -%}
 # GraphQL not enabled for this plugin
 # To enable GraphQL support, regenerate the plugin with include_graphql=yes

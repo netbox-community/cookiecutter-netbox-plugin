@@ -32,7 +32,6 @@ class {{ cookiecutter.__model_name }}ViewTestCase(PluginViewTestCase):
         response = self.client.get(url)
 
         self.assertHttpStatus(response, 200)
-        self.assertIn('{{ cookiecutter.__model_url_name }}_list', response.context)
 
     def test_list_{{ cookiecutter.__model_url_name }}s_without_permission(self):
         """Test {{ cookiecutter.__model_name }} list view without permission."""

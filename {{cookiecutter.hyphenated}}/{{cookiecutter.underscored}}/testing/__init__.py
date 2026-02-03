@@ -8,14 +8,14 @@ from contextlib import contextmanager
 from typing import Any
 
 from django.contrib.auth import get_user_model
-from django.contrib.auth.models import Permission
-from django.contrib.contenttypes.models import ContentType
 from django.db import transaction
 from django.test import Client
 from django.test import TestCase as DjangoTestCase
 from django.urls import reverse
-from rest_framework.authtoken.models import Token
 from rest_framework.test import APIClient
+from users.constants import TOKEN_PREFIX
+from users.models import ObjectPermission, Token
+from utilities.permissions import resolve_permission_type
 
 User = get_user_model()
 
@@ -64,10 +64,10 @@ class PluginTestCase(DjangoTestCase):
 
     def add_permissions(self, *permissions: str):
         """
-        Assign permissions to the test user.
+        Assign permissions to the test user using NetBox's ObjectPermission system.
 
         Args:
-            *permissions: Permission strings in format "app_label.codename"
+            *permissions: Permission names in format "app.action_model"
                          e.g., "{{ cookiecutter.underscored }}.add_{{ cookiecutter.__model_url_name }}"
 
         Example:
@@ -76,28 +76,27 @@ class PluginTestCase(DjangoTestCase):
                 "{{ cookiecutter.underscored }}.add_{{ cookiecutter.__model_url_name }}",
             )
         """
-        for permission_string in permissions:
-            app_label, codename = permission_string.split('.')
-            permission = Permission.objects.get(
-                content_type__app_label=app_label,
-                codename=codename
-            )
-            self.user.user_permissions.add(permission)
+        for name in permissions:
+            object_type, action = resolve_permission_type(name)
+            obj_perm = ObjectPermission(name=name, actions=[action])
+            obj_perm.save()
+            obj_perm.users.add(self.user)
+            obj_perm.object_types.add(object_type)
 
     def remove_permissions(self, *permissions: str):
         """
         Remove permissions from the test user.
 
         Args:
-            *permissions: Permission strings in format "app_label.codename"
+            *permissions: Permission names in format "app.action_model"
         """
-        for permission_string in permissions:
-            app_label, codename = permission_string.split('.')
-            permission = Permission.objects.get(
-                content_type__app_label=app_label,
-                codename=codename
-            )
-            self.user.user_permissions.remove(permission)
+        for name in permissions:
+            object_type, action = resolve_permission_type(name)
+            ObjectPermission.objects.filter(
+                actions__contains=[action],
+                object_types=object_type,
+                users=self.user
+            ).delete()
 
     def assertHttpStatus(self, response, expected_status: int, msg: str = None):
         """
@@ -251,7 +250,7 @@ class PluginAPITestCase(PluginModelTestCase):
         super().setUp()
         self.token = Token.objects.create(user=self.user)
         self.client = APIClient()
-        self.client.credentials(HTTP_AUTHORIZATION=f'Token {self.token.key}')
+        self.client.credentials(HTTP_AUTHORIZATION=f'Bearer {TOKEN_PREFIX}{self.token.key}.{self.token.token}')
 
     def _get_list_url(self) -> str:
         """
@@ -395,7 +394,7 @@ class PluginGraphQLTestCase(PluginTestCase):
             variables: Optional query variables
 
         Returns:
-            Response object
+            Dict with GraphQL response data
         """
         url = reverse('graphql')
         data = {'query': query}
@@ -409,7 +408,7 @@ class PluginGraphQLTestCase(PluginTestCase):
         )
 
         self.assertEqual(response.status_code, 200)
-        return response
+        return response.json()
 
     def assertGraphQLSuccess(self, response):
         """Assert that GraphQL query succeeded without errors."""

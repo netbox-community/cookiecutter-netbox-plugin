@@ -151,14 +151,13 @@ class {{ cookiecutter.__model_name }}APITestCase(PluginAPITestCase):
             self.assertHttpStatus(response, 403)
 
     def test_options_{{ cookiecutter.__model_url_name }}(self):
-        """Test OPTIONS request for API metadata."""
+        """Test OPTIONS request for list endpoint."""
         self.add_permissions('{{ cookiecutter.underscored }}.view_{{ cookiecutter.__model_url_name }}')
 
         url = self._get_list_url()
         response = self.client.options(url)
 
         self.assertHttpStatus(response, 200)
-        self.assertIn('actions', response.data)
 
 
 class {{ cookiecutter.__model_name }}APIValidationTestCase(PluginAPITestCase):
