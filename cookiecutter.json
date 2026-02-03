@@ -4,7 +4,7 @@
   "hyphenated": "{{ '-'.join(cookiecutter['project_name'].lower().split()).replace('_', '-') }}",
   "underscored": "{{ cookiecutter.hyphenated.replace('-', '_') }}",
   "project_short_description": "NetBox plugin for {{ cookiecutter.plugin_name }}.",
-  "__model_name": "{{ cookiecutter.plugin_name.replace(' ', '').replace('-', '') }}",
+  "__model_name": "{{ cookiecutter.plugin_name.replace(' ', '').replace('-', '').title() }}",
   "__model_url": "{{ cookiecutter.plugin_name.lower().replace(' ', '-').replace('_', '-') }}",
   "__model_url_name": "{{ cookiecutter.plugin_name.lower().replace(' ', '').replace('_', '').replace('-', '') }}",
   "full_name": "John Doe",

@@ -5,36 +5,36 @@ GraphQL schema for {{ cookiecutter.project_name }}.
 For more information on NetBox GraphQL, see:
 https://docs.netbox.dev/en/stable/plugins/development/graphql/
 
-For Graphene (GraphQL library) documentation, see:
-https://docs.graphene-python.org/
+For Strawberry GraphQL documentation, see:
+https://strawberry.rocks/
 """
 
-import graphene
-from netbox.graphql.types import NetBoxObjectType
+from typing import List
+
+import strawberry
+import strawberry_django
 
 from .models import {{ cookiecutter.__model_name }}
 
 
-class {{ cookiecutter.__model_name }}Type(NetBoxObjectType):
+@strawberry_django.type(
+    {{ cookiecutter.__model_name }},
+    fields='__all__',
+)
+class {{ cookiecutter.__model_name }}Type:
     """GraphQL type for {{ cookiecutter.__model_name }} model."""
-
-    class Meta:
-        model = {{ cookiecutter.__model_name }}
-        fields = "__all__"
+    pass
 
 
-class Query(graphene.ObjectType):
+@strawberry.type(name="Query")
+class {{ cookiecutter.__model_name }}Query:
     """GraphQL queries for {{ cookiecutter.project_name }}."""
 
-    {{ cookiecutter.__model_url_name }} = graphene.Field({{ cookiecutter.__model_name }}Type, id=graphene.Int())
-    {{ cookiecutter.__model_url_name }}_list = graphene.List({{ cookiecutter.__model_name }}Type)
-
-    def resolve_{{ cookiecutter.__model_url_name }}(self, info, id):
-        return {{ cookiecutter.__model_name }}.objects.get(pk=id)
-
-    def resolve_{{ cookiecutter.__model_url_name }}_list(self, info):
-        return {{ cookiecutter.__model_name }}.objects.all()
+    {{ cookiecutter.__model_url_name }}: {{ cookiecutter.__model_name }}Type = strawberry_django.field()
+    {{ cookiecutter.__model_url_name }}_list: List[{{ cookiecutter.__model_name }}Type] = strawberry_django.field()
 
 
-schema = graphene.Schema(query=Query)
+schema = [
+    {{ cookiecutter.__model_name }}Query,
+]
 {% endif %}
