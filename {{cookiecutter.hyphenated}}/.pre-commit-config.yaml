@@ -14,7 +14,7 @@ repos:
         args: [{{ cookiecutter.underscored }}/]
 
 -   repo: https://github.com/mgedmin/check-manifest
-    rev: "0.50"
+    rev: "0.51"
     hooks:
       - id: check-manifest
         stages: [manual]
