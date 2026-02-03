@@ -4,7 +4,9 @@ repo_url: https://github.com/netbox-community/cookiecutter-netbox-plugin
 repo_name: netbox-community/cookiecutter-netbox-plugin
 nav:
   - Introduction: index.md
-  - Tutorial: tutorial.md
+  - Quickstart: quickstart.md
+  - Extending Your Plugin: extending.md
+  - Publishing Your Plugin: publishing.md
   - Prompts: prompts.md
   - Features:
     - Search: search.md
