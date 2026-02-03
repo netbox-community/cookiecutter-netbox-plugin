@@ -73,5 +73,8 @@ ignore = [
 [tool.ruff.lint.per-file-ignores]
 "__init__.py" = ["F401"]
 
+[tool.setuptools]
+packages = ["{{ cookiecutter.underscored }}"]
+
 [tool.setuptools.package-data]
 {{ cookiecutter.underscored }} = ["templates/**"]
