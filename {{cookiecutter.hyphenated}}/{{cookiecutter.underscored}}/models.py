@@ -24,4 +24,4 @@ class {{ cookiecutter.__model_name }}(NetBoxModel):
         return self.name
 
     def get_absolute_url(self):
-        return reverse("plugins:{{ cookiecutter.underscored }}:{{ cookiecutter.__model_name|lower }}", args=[self.pk])
+        return reverse("plugins:{{ cookiecutter.underscored }}:{{ cookiecutter.__model_url_name }}", args=[self.pk])
