@@ -17,6 +17,7 @@ class {{ cookiecutter.__model_name }}(NetBoxModel):
     name = models.CharField(max_length=100, unique=True)
 
     class Meta:
+        app_label = "{{ cookiecutter.underscored }}"
         ordering = ("name",)
         verbose_name_plural = "{{ cookiecutter.__model_name }}s"
 

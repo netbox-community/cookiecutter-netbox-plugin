@@ -167,6 +167,9 @@ $ ./manage.py test netbox_healthcheck_plugin.tests --parallel -v2
 $ ./manage.py test netbox_healthcheck_plugin.tests.test_models
 ```
 
+!!! note "Module Names"
+    Use the underscored Python module name (e.g., `netbox_healthcheck_plugin`), not the hyphenated repository name (e.g., `netbox-healthcheck-plugin`).
+
 The CI workflow will automatically run tests on every push and pull request.
 
 ## Step 7: Create a GitHub Repo
