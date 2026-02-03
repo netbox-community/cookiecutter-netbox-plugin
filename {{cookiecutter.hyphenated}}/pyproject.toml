@@ -2,7 +2,7 @@
 # https://www.python.org/dev/peps/pep-0518/
 
 [build-system]
-requires = ["setuptools"]
+requires = ["setuptools>=77.0.3"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -13,6 +13,8 @@ authors = [
 ]
 description = "{{ cookiecutter.project_short_description }}"
 readme = "README.md"
+license-files = ["LICENSE"]
+keywords = ["netbox", "netbox-plugin"]
 
 {%- set license_classifiers = {
     'MIT license': 'License :: OSI Approved :: MIT License',
@@ -24,15 +26,20 @@ readme = "README.md"
 
 classifiers=[
     'Development Status :: 3 - Alpha',
+    'Framework :: Django',
+    'Framework :: Django :: 5.1',
     'Intended Audience :: Developers',
+    'Intended Audience :: System Administrators',
+    'Intended Audience :: Telecommunications Industry',
 {%- if cookiecutter.open_source_license in license_classifiers %}
     '{{ license_classifiers[cookiecutter.open_source_license] }}',
 {%- endif %}
     'Natural Language :: English',
-    "Programming Language :: Python :: 3 :: Only",
+    'Programming Language :: Python :: 3 :: Only',
     'Programming Language :: Python :: 3.12',
     'Programming Language :: Python :: 3.13',
     'Programming Language :: Python :: 3.14',
+    'Topic :: System :: Networking',
 ]
 
 requires-python = ">=3.12.0"
@@ -72,8 +79,13 @@ ignore = [
 [tool.ruff.lint.per-file-ignores]
 "__init__.py" = ["F401"]
 
-[tool.setuptools]
-packages = ["{{ cookiecutter.underscored }}"]
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["{{ cookiecutter.underscored }}*"]
 
 [tool.setuptools.package-data]
-{{ cookiecutter.underscored }} = ["templates/**"]
+{{ cookiecutter.underscored }} = [
+    "templates/**",
+    "static/**",
+    "locale/**/*.mo",
+]
