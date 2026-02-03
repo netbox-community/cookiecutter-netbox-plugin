@@ -6,6 +6,7 @@ global search. See: https://docs.netbox.dev/en/stable/plugins/development/search
 """
 
 from netbox.search import SearchIndex
+
 from .models import {{ cookiecutter.__model_name }}
 
 

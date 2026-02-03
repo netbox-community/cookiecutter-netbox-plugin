@@ -22,14 +22,13 @@ class {{ cookiecutter.__model_name }}GraphQLTestCase(PluginGraphQLTestCase):
 
         instance = {{ cookiecutter.__model_name }}.objects.first()
 
-        query = """
-        query {
-            {{ cookiecutter.__model_url_name }}(id: %s) {
-                id
-                name
-            }
-        }
-        """ % instance.pk
+        query = (
+            "query { "
+            "{{ cookiecutter.__model_url_name }}(id: " + str(instance.pk) + ") { "
+            "id name "
+            "} "
+            "}"
+        )
 
         response = self.execute_query(query)
         self.assertIsNone(response.get('errors'))
@@ -63,14 +62,13 @@ class {{ cookiecutter.__model_name }}GraphQLTestCase(PluginGraphQLTestCase):
         """Test GraphQL query without permission returns error."""
         instance = {{ cookiecutter.__model_name }}.objects.first()
 
-        query = """
-        query {
-            {{ cookiecutter.__model_url_name }}(id: %s) {
-                id
-                name
-            }
-        }
-        """ % instance.pk
+        query = (
+            "query { "
+            "{{ cookiecutter.__model_url_name }}(id: " + str(instance.pk) + ") { "
+            "id name "
+            "} "
+            "}"
+        )
 
         response = self.execute_query(query)
         # GraphQL returns errors for permission issues
@@ -99,16 +97,13 @@ class {{ cookiecutter.__model_name }}GraphQLTestCase(PluginGraphQLTestCase):
 
         instance = {{ cookiecutter.__model_name }}.objects.first()
 
-        query = """
-        query {
-            {{ cookiecutter.__model_url_name }}(id: %s) {
-                id
-                name
-                created
-                lastUpdated
-            }
-        }
-        """ % instance.pk
+        query = (
+            "query { "
+            "{{ cookiecutter.__model_url_name }}(id: " + str(instance.pk) + ") { "
+            "id name created lastUpdated "
+            "} "
+            "}"
+        )
 
         response = self.execute_query(query)
         self.assertIsNone(response.get('errors'))

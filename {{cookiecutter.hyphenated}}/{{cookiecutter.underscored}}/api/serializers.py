@@ -9,8 +9,8 @@ For Django REST Framework serializers, see:
 https://www.django-rest-framework.org/api-guide/serializers/
 """
 
-from rest_framework import serializers
 from netbox.api.serializers import NetBoxModelSerializer
+from rest_framework import serializers
 
 from ..models import {{ cookiecutter.__model_name }}
 

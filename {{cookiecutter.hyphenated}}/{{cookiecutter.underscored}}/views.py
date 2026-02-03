@@ -9,6 +9,7 @@ https://docs.netbox.dev/en/stable/development/views/
 """
 
 from netbox.views import generic
+
 from . import filtersets, forms, models, tables
 
 

@@ -9,7 +9,7 @@ https://django-tables2.readthedocs.io/
 """
 
 import django_tables2 as tables
-from netbox.tables import NetBoxTable, ChoiceFieldColumn
+from netbox.tables import NetBoxTable
 
 from .models import {{ cookiecutter.__model_name }}
 

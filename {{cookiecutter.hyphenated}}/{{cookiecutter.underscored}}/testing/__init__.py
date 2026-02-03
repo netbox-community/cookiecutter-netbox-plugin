@@ -5,17 +5,16 @@ These classes provide common testing patterns.
 """
 
 from contextlib import contextmanager
-from typing import Any, Dict, List, Optional, Set
+from typing import Any
 
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Permission
 from django.contrib.contenttypes.models import ContentType
 from django.db import transaction
-from django.test import TestCase as DjangoTestCase, Client
+from django.test import Client, TestCase as DjangoTestCase
 from django.urls import reverse
-from rest_framework.test import APIClient
 from rest_framework.authtoken.models import Token
-
+from rest_framework.test import APIClient
 
 User = get_user_model()
 
@@ -31,7 +30,7 @@ class PluginTestCase(DjangoTestCase):
     - Transaction-based subtests with automatic cleanup
     """
 
-    user_permissions: List[str] = []
+    user_permissions: list[str] = []
 
     def setUp(self):
         """Create a test user with optional permissions."""
@@ -159,8 +158,8 @@ class PluginModelTestCase(PluginTestCase):
     - Support for foreign keys and many-to-many relationships
     """
 
-    def assertInstanceEqual(self, instance, data: Dict[str, Any],
-                          exclude: Optional[Set[str]] = None,
+    def assertInstanceEqual(self, instance, data: dict[str, Any],
+                          exclude: set[str | None] = None,
                           api: bool = False):
         """
         Compare a model instance against a dictionary of expected values.
@@ -197,8 +196,8 @@ class PluginModelTestCase(PluginTestCase):
                 f"Field '{field_name}' mismatch: {actual_value} != {expected_value}"
             )
 
-    def model_to_dict(self, instance, exclude: Optional[Set[str]] = None,
-                     api: bool = False) -> Dict[str, Any]:
+    def model_to_dict(self, instance, exclude: set[str | None] = None,
+                     api: bool = False) -> dict[str, Any]:
         """
         Convert a model instance to a dictionary for comparison.
 
@@ -346,7 +345,7 @@ class PluginViewTestCase(PluginModelTestCase):
         else:
             raise ValueError(f"Invalid action '{action}' or missing instance")
 
-    def post_data(self, data: Dict[str, Any]) -> Dict[str, Any]:
+    def post_data(self, data: dict[str, Any]) -> dict[str, Any]:
         """
         Convert test data dictionary to POST-friendly format.
 
@@ -388,7 +387,7 @@ class PluginGraphQLTestCase(PluginTestCase):
     - Query result validation
     """
 
-    def execute_query(self, query: str, variables: Optional[Dict] = None):
+    def execute_query(self, query: str, variables: dict | None = None):
         """
         Execute a GraphQL query.
 
@@ -419,7 +418,7 @@ class PluginGraphQLTestCase(PluginTestCase):
         self.assertNotIn('errors', json_data,
                         f"GraphQL query failed: {json_data.get('errors')}")
 
-    def assertGraphQLHasData(self, response, expected_count: Optional[int] = None):
+    def assertGraphQLHasData(self, response, expected_count: int | None = None):
         """
         Assert that GraphQL response contains data.
 

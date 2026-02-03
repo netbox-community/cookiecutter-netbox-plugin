@@ -9,6 +9,7 @@ https://django-filter.readthedocs.io/
 """
 
 from netbox.filtersets import NetBoxModelFilterSet
+
 from .models import {{ cookiecutter.__model_name }}
 
 

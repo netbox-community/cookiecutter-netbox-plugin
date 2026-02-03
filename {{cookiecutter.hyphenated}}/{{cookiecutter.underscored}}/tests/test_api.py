@@ -2,11 +2,9 @@
 Test cases for {{ cookiecutter.project_name }} REST API.
 """
 {% if cookiecutter.include_rest_api == "yes" -%}
-from django.urls import reverse
-
 from ..models import {{ cookiecutter.__model_name }}
 from ..testing import PluginAPITestCase
-from ..testing.utils import get_random_string, disable_warnings
+from ..testing.utils import disable_warnings, get_random_string
 
 
 class {{ cookiecutter.__model_name }}APITestCase(PluginAPITestCase):
@@ -183,7 +181,7 @@ class {{ cookiecutter.__model_name }}APIValidationTestCase(PluginAPITestCase):
 
     def test_create_with_duplicate_name(self):
         """Test that API validates duplicate names."""
-        existing = {{ cookiecutter.__model_name }}.objects.create(name='Duplicate')
+        {{ cookiecutter.__model_name }}.objects.create(name='Duplicate')
 
         url = self._get_list_url()
         data = {'name': 'Duplicate'}

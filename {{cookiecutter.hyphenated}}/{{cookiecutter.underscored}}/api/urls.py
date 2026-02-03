@@ -10,8 +10,8 @@ https://www.django-rest-framework.org/api-guide/routers/
 """
 
 from netbox.api.routers import NetBoxRouter
-from .views import {{ cookiecutter.__model_name }}ViewSet
 
+from .views import {{ cookiecutter.__model_name }}ViewSet
 
 app_name = "{{ cookiecutter.underscored }}"
 

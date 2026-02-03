@@ -7,11 +7,10 @@ handling forms, and managing test state.
 
 import random
 import string
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 from django.contrib.auth import get_user_model
 from django.contrib.contenttypes.models import ContentType
-
 
 User = get_user_model()
 
@@ -34,7 +33,7 @@ def get_random_string(length: int = 10, charset: str = string.ascii_letters + st
     return ''.join(random.choices(charset, k=length))
 
 
-def create_test_user(username: Optional[str] = None, permissions: Optional[List[str]] = None,
+def create_test_user(username: str | None = None, permissions: list[str | None] = None,
                     is_staff: bool = True, is_superuser: bool = False) -> User:
     """
     Create a test user with optional permissions.
@@ -78,7 +77,7 @@ def create_test_user(username: Optional[str] = None, permissions: Optional[List[
     return user
 
 
-def post_data(data: Dict[str, Any]) -> Dict[str, Any]:
+def post_data(data: dict[str, Any]) -> dict[str, Any]:
     """
     Convert test data dictionary to POST-friendly format.
 
@@ -128,7 +127,7 @@ def post_data(data: Dict[str, Any]) -> Dict[str, Any]:
     return post_dict
 
 
-def extract_form_errors(response) -> Dict[str, List[str]]:
+def extract_form_errors(response) -> dict[str, list[str]]:
     """
     Extract form errors from an HTML response.
 
@@ -146,7 +145,6 @@ def extract_form_errors(response) -> Dict[str, List[str]]:
         >>> self.assertIn('name', errors)
         >>> self.assertEqual(errors['name'], ['This field is required.'])
     """
-    from django.template.loader import render_to_string
     from bs4 import BeautifulSoup
 
     try:
@@ -207,13 +205,13 @@ def disable_warnings(*logger_names: str):
                 logger.setLevel(logging.ERROR)
             yield
         finally:
-            for logger, level in zip(loggers, original_levels):
+            for logger, level in zip(loggers, original_levels, strict=True):
                 logger.setLevel(level)
 
     return _disable()
 
 
-def create_tags(names: List[str]):
+def create_tags(names: list[str]):
     """
     Create multiple tags for testing.
 
@@ -285,8 +283,8 @@ def get_deletable_objects(instances):
 
 
 def assert_object_changes(test_case, instance, action: str,
-                         user: Optional[User] = None,
-                         message: Optional[str] = None):
+                         user: User | None = None,
+                         message: str | None = None):
     """
     Assert that an ObjectChange entry was created for an action.
 
@@ -306,8 +304,8 @@ def assert_object_changes(test_case, instance, action: str,
         >>> assert_object_changes(self, obj, 'create', user=self.user)
     """
     try:
-        from extras.models import ObjectChange
         from extras.choices import ObjectChangeActionChoices
+        from extras.models import ObjectChange
 
         action_map = {
             'create': ObjectChangeActionChoices.ACTION_CREATE,

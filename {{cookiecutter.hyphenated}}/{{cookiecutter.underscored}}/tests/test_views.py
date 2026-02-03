@@ -6,7 +6,7 @@ from django.urls import reverse
 
 from ..models import {{ cookiecutter.__model_name }}
 from ..testing import PluginViewTestCase
-from ..testing.utils import get_random_string, disable_warnings
+from ..testing.utils import disable_warnings, get_random_string
 
 
 class {{ cookiecutter.__model_name }}ViewTestCase(PluginViewTestCase):
@@ -157,7 +157,7 @@ class {{ cookiecutter.__model_name }}FormTestCase(PluginViewTestCase):
 
     def test_form_validation_duplicate_name(self):
         """Test form validation with duplicate name."""
-        existing = {{ cookiecutter.__model_name }}.objects.create(name='Duplicate')
+        {{ cookiecutter.__model_name }}.objects.create(name='Duplicate')
 
         url = reverse('plugins:{{ cookiecutter.underscored }}:{{ cookiecutter.__model_url_name }}_add')
         form_data = self.post_data({'name': 'Duplicate'})

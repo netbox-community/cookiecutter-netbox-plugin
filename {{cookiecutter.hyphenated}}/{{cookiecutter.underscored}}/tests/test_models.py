@@ -2,11 +2,11 @@
 Test cases for {{ cookiecutter.project_name }} models.
 """
 
-from django.test import TestCase
+from django.core.exceptions import ValidationError
 
 from ..models import {{ cookiecutter.__model_name }}
 from ..testing import PluginModelTestCase
-from ..testing.utils import get_random_string, create_tags
+from ..testing.utils import create_tags, get_random_string
 
 
 class {{ cookiecutter.__model_name }}TestCase(PluginModelTestCase):
@@ -46,8 +46,9 @@ class {{ cookiecutter.__model_name }}TestCase(PluginModelTestCase):
         name = 'Duplicate Name'
         {{ cookiecutter.__model_name }}.objects.create(name=name)
 
-        with self.assertRaises(Exception):
-            {{ cookiecutter.__model_name }}.objects.create(name=name)
+        with self.assertRaises(ValidationError):
+            instance = {{ cookiecutter.__model_name }}(name=name)
+            instance.full_clean()
 
     def test_model_to_dict(self):
         """Test model_to_dict helper method."""
@@ -114,17 +115,19 @@ class {{ cookiecutter.__model_name }}TestCase(PluginModelTestCase):
         self.assertEqual(names, sorted(names))
 
 
-class {{ cookiecutter.__model_name }}ValidationTestCase(TestCase):
+class {{ cookiecutter.__model_name }}ValidationTestCase(PluginModelTestCase):
     """Test {{ cookiecutter.__model_name }} validation."""
 
     def test_empty_name(self):
         """Test that empty name is not allowed."""
-        with self.assertRaises(Exception):
-            {{ cookiecutter.__model_name }}.objects.create(name='')
+        with self.assertRaises(ValidationError):
+            instance = {{ cookiecutter.__model_name }}(name='')
+            instance.full_clean()
 
     def test_name_max_length(self):
         """Test name field max length."""
         long_name = 'x' * 101  # Exceeds max_length of 100
 
-        with self.assertRaises(Exception):
-            {{ cookiecutter.__model_name }}.objects.create(name=long_name)
+        with self.assertRaises(ValidationError):
+            instance = {{ cookiecutter.__model_name }}(name=long_name)
+            instance.full_clean()

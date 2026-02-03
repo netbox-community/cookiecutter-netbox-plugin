@@ -7,7 +7,6 @@ https://docs.netbox.dev/en/stable/plugins/development/navigation/
 
 from netbox.plugins import PluginMenuButton, PluginMenuItem
 
-
 plugin_buttons = [
     PluginMenuButton(
         link="plugins:{{ cookiecutter.underscored }}:{{ cookiecutter.__model_url_name }}_add",
