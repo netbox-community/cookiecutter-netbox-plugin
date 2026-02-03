@@ -9,11 +9,9 @@ https://docs.djangoproject.com/en/stable/topics/http/urls/
 """
 
 from django.urls import path
-
 from netbox.views.generic import ObjectChangeLogView
 
 from . import models, views
-
 
 urlpatterns = (
     path("{{ cookiecutter.__model_url }}s/", views.{{ cookiecutter.__model_name }}ListView.as_view(), name="{{ cookiecutter.__model_url_name }}_list"),

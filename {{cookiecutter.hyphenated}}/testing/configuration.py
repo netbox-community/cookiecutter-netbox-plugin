@@ -10,7 +10,6 @@ Usage:
 
 import os
 
-
 # Database configuration
 DATABASES = {
     'default': {
